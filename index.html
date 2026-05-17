@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="mr" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personalized W.A.R.P System | 1-to-1 Strategy Call</title>
+
+    <!-- Google Fonts: Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#091321', // Dark blue background
+                        accent: '#F59E0B', // Amber/Yellow accent
+                        cta: '#C20E22', // Red CTA button
+                        'cta-hover': '#9F0B1A',
+                        card: '#0D1D30', // Card background
+                        'card-border': '#1E293B',
+                    },
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'neon-accent': '0 0 20px rgba(245, 158, 11, 0.3)',
+                        'neon-cta': '0 0 25px rgba(194, 14, 34, 0.5)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #091321;
+            background-image:
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        .glass-card {
+            background: rgba(13, 29, 48, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .gradient-text {
+            background: linear-gradient(to right, #F59E0B, #F97316);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .cta-button {
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover .cta-icon {
+            transform: translateX(4px);
+        }
+    </style>
+</head>
+
+<body class="antialiased pb-24">
+
+    <!-- Top Announcement Banner -->
+    <div
+        class="w-full py-2.5 bg-accent text-black text-center font-bold text-sm tracking-wide z-50 sticky top-0 shadow-md">
+        ⚠️ 14 दिवसांत performance movement दिसले नाही? Consultation fee refund guarantee.
+    </div>
+
+    <!-- Hero Section -->
+    <section class="container mx-auto px-4 py-12 lg:py-20 max-w-7xl">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+
+            <!-- Left Column: Copy -->
+            <div class="space-y-6">
+                <div class="inline-flex items-center gap-2 bg-white/10 px-4 py-2 rounded-full border border-white/20">
+                    <span class="text-accent text-xl">⭐</span>
+                    <span class="text-sm font-semibold tracking-wide text-gray-200">Exclusive 1-to-1 Strategy</span>
+                </div>
+
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight">
+                    Business Owners साठी <br>
+                    <span class="text-accent relative inline-block">
+                        Personalized W.A.R.P
+                        <svg class="absolute w-full h-3 -bottom-1 left-0 text-accent" viewBox="0 0 100 10"
+                            preserveAspectRatio="none">
+                            <path d="M0 5 Q 50 10 100 5" stroke="currentColor" stroke-width="4" fill="transparent" />
+                        </svg>
+                    </span><br>
+                    System
+                </h1>
+
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-100 mt-4">
+                    Webinar पाहणे थांबवा आणि 1-to-1 Strategy Call बुक करा
+                </h2>
+
+                <p class="text-gray-400 text-lg md:text-xl leading-relaxed">
+                    Webinar मध्ये 30-40 लोक असतात. तिथे general माहिती मिळते, पण तुमच्या business बद्दल exact clarity
+                    मिळत नाही.
+                    <strong class="text-white font-semibold">1-to-1 call मध्ये आम्ही तुमच्या business साठी exact ads
+                        audit, funnel analysis आणि growth roadmap देतो.</strong>
+                </p>
+
+                <!-- Value Props -->
+                <div class="flex flex-col gap-3 mt-6">
+                    <div class="flex items-center gap-3">
+                        <div
+                            class="w-8 h-8 rounded-full bg-accent/20 flex items-center justify-center text-accent text-xl">
+                            🎥</div>
+                        <span class="text-lg font-medium text-gray-200">Personalized Strategy</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <div
+                            class="w-8 h-8 rounded-full bg-accent/20 flex items-center justify-center text-accent text-xl">
+                            🎯</div>
+                        <span class="text-lg font-medium text-gray-200">Generic Webinar नाही</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <div
+                            class="w-8 h-8 rounded-full bg-accent/20 flex items-center justify-center text-accent text-xl">
+                            🚀</div>
+                        <span class="text-lg font-medium text-gray-200">Direct Growth Plan</span>
+                    </div>
+                </div>
+
+                <!-- CTA Button -->
+                <div class="pt-6">
+                    <a href="#" onclick="openModal(event)"
+                        class="cta-button group relative inline-flex items-center justify-between w-full sm:w-auto bg-cta hover:bg-cta-hover text-white font-bold text-lg md:text-xl rounded-xl overflow-hidden shadow-neon-cta pr-2 pl-8 py-3">
+                        <span>₹149 Strategy Consultation Book करा</span>
+                        <div
+                            class="cta-icon ml-6 bg-white w-10 h-10 rounded-lg flex items-center justify-center text-cta font-black text-2xl transition-transform duration-300">
+                            >
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right Column: Video -->
+            <div class="relative w-full">
+                <div class="text-center mb-4">
+                    <span
+                        class="inline-block px-4 py-1 bg-purple-900/50 border border-purple-500/30 rounded-full text-sm font-medium text-purple-200">
+                        👇 हा system कसा काम करतो ते पहा
+                    </span>
+                </div>
+
+                <div
+                    class="relative rounded-2xl overflow-hidden border-2 border-slate-700 shadow-2xl aspect-video bg-black flex items-center justify-center">
+                    <iframe class="absolute inset-0 w-full h-full"
+                        src="https://www.youtube.com/embed/XA0Hq2tYsb4?si=gk8VLaoV08FGRZiU" title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Problem / Hook Section -->
+    <section class="py-16 bg-slate-900/50 border-y border-slate-800">
+        <div class="container mx-auto px-4 max-w-4xl text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">
+                <span class="text-red-500">⚠️ Ads चालू आहेत पण Leads येत नाहीत?</span><br>
+                <span class="text-2xl md:text-3xl text-gray-300 mt-2 block font-medium">ही समस्या बहुतेक business owners
+                    face करतात.</span>
+            </h2>
+
+            <p class="text-xl text-gray-400 mb-10">मार्केटिंग शिकणं थांबवा. ग्राहक मिळवणं सुरू करा.</p>
+
+            <div class="grid sm:grid-cols-2 gap-6 text-left">
+                <div class="glass-card p-6 rounded-2xl">
+                    <div class="text-accent text-3xl mb-4">⚙️</div>
+                    <h3 class="text-xl font-bold mb-2">Done-For-You System</h3>
+                    <p class="text-gray-400">जो ads + funnel + automation integrate करतो.</p>
+                </div>
+                <div class="glass-card p-6 rounded-2xl">
+                    <div class="text-accent text-3xl mb-4">📈</div>
+                    <h3 class="text-xl font-bold mb-2">Predictable Leads</h3>
+                    <p class="text-gray-400">Facebook & Instagram Ads वापरून monthly consistent lead flow तयार करतो.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section class="py-20 container mx-auto px-4 max-w-5xl">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-5xl font-bold mb-4">Webinar <span class="text-gray-500">vs</span> 1-to-1
+                Strategy Call</h2>
+            <p class="text-xl text-gray-400">याच ठिकाणी तुमचा biggest positioning advantage आहे.</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8">
+            <!-- Webinar (Red) -->
+            <div class="bg-red-950/20 border-2 border-red-900/50 rounded-2xl p-8 relative overflow-hidden">
+                <div class="absolute top-0 right-0 bg-red-600 text-white px-4 py-1 rounded-bl-xl font-bold text-sm">
+                    Generic</div>
+                <h3 class="text-2xl font-bold text-red-400 mb-6 flex items-center gap-3">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    Webinar (30-40+ लोक)
+                </h3>
+                <ul class="space-y-4">
+                    <li class="flex items-start gap-3 text-gray-300">
+                        <span class="text-red-500 mt-1">❌</span> General माहिती, specific solution नाही.
+                    </li>
+                    <li class="flex items-start gap-3 text-gray-300">
+                        <span class="text-red-500 mt-1">❌</span> तुमचे प्रश्न विचारायला वेळ मिळत नाही.
+                    </li>
+                    <li class="flex items-start gap-3 text-gray-300">
+                        <span class="text-red-500 mt-1">❌</span> Business चा exact problem समजत नाही.
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 1-to-1 Call (Green) -->
+            <div
+                class="bg-emerald-950/20 border-2 border-emerald-500/60 rounded-2xl p-8 relative overflow-hidden shadow-[0_0_30px_rgba(16,185,129,0.1)]">
+                <div class="absolute top-0 right-0 bg-emerald-500 text-white px-4 py-1 rounded-bl-xl font-bold text-sm">
+                    Personalized</div>
+                <h3 class="text-2xl font-bold text-emerald-400 mb-6 flex items-center gap-3">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    1-to-1 Strategy Call
+                </h3>
+                <ul class="space-y-4">
+                    <li class="flex items-start gap-3 text-gray-300">
+                        <span class="text-emerald-500 mt-1">✅</span> तुमच्या business साठी exact ads audit.
+                    </li>
+                    <li class="flex items-start gap-3 text-gray-300">
+                        <span class="text-emerald-500 mt-1">✅</span> Funnel analysis आणि custom roadmap.
+                    </li>
+                    <li class="flex items-start gap-3 text-gray-300">
+                        <span class="text-emerald-500 mt-1">✅</span> 100% focus फक्त तुमच्या growth वर.
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Framework Section -->
+    <section class="py-20 bg-black/40">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-bold mb-4">
+                    🚀 DFY AI + Meta <span class="text-accent">W.A.R.P</span> Funnel System
+                </h2>
+                <p class="text-xl text-gray-400">हा फक्त ad setup नाही. हा complete lead generation system आहे.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <!-- Framework Image/Diagram -->
+                <div class="glass-card p-4 rounded-3xl relative">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-accent/20 to-transparent rounded-3xl"></div>
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="WARP Framework"
+                        class="rounded-2xl w-full h-auto relative z-10 opacity-80 mix-blend-luminosity">
+                </div>
+
+                <!-- Text -->
+                <div>
+                    <h3 class="text-3xl font-bold mb-6 flex items-center gap-3">
+                        <span class="text-4xl text-accent">⚙️</span>
+                        W.A.R.P Framework
+                    </h3>
+                    <p class="text-lg text-gray-300 leading-relaxed mb-8">
+                        हा framework तुमच्या funnel ला working system मध्ये convert करतो.
+                    </p>
+
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-4 glass-card p-4 rounded-xl">
+                            <div
+                                class="w-10 h-10 rounded-full bg-accent text-black font-bold flex items-center justify-center shrink-0">
+                                W</div>
+                            <div>
+                                <h4 class="font-bold text-lg">Winning Ad Creatives</h4>
+                                <p class="text-sm text-gray-400">AI and data-driven ad angles that attract high-quality
+                                    prospects.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4 glass-card p-4 rounded-xl">
+                            <div
+                                class="w-10 h-10 rounded-full bg-accent text-black font-bold flex items-center justify-center shrink-0">
+                                A</div>
+                            <div>
+                                <h4 class="font-bold text-lg">Automated Funnel</h4>
+                                <p class="text-sm text-gray-400">High-converting landing pages that sell for you 24/7.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4 glass-card p-4 rounded-xl">
+                            <div
+                                class="w-10 h-10 rounded-full bg-accent text-black font-bold flex items-center justify-center shrink-0">
+                                R</div>
+                            <div>
+                                <h4 class="font-bold text-lg">Retargeting Engine</h4>
+                                <p class="text-sm text-gray-400">Capture lost traffic and convert them with precise
+                                    remarketing.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4 glass-card p-4 rounded-xl">
+                            <div
+                                class="w-10 h-10 rounded-full bg-accent text-black font-bold flex items-center justify-center shrink-0">
+                                P</div>
+                            <div>
+                                <h4 class="font-bold text-lg">Predictable Tracking</h4>
+                                <p class="text-sm text-gray-400">Know exactly where your leads come from and scale
+                                    profitably.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof / Brands -->
+    <section class="py-16 container mx-auto px-4 max-w-6xl text-center border-b border-slate-800">
+        <h3 class="text-2xl font-bold mb-2">⭐ Brands & Businesses We Have Worked With</h3>
+        <p class="text-gray-500 mb-8">ही section trust build करण्यासाठी खूप important आहे.</p>
+
+        <div
+            class="flex flex-wrap justify-center gap-6 items-center opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
+            <!-- Brand Logos Placeholder -->
+            <div class="bg-white/10 px-6 py-3 rounded-xl border border-white/20 font-bold text-xl tracking-widest">BRAND
+                1</div>
+            <div class="bg-white/10 px-6 py-3 rounded-xl border border-white/20 font-bold text-xl tracking-widest">
+                COMPANY</div>
+            <div class="bg-white/10 px-6 py-3 rounded-xl border border-white/20 font-bold text-xl tracking-widest">
+                STARTUP</div>
+            <div class="bg-white/10 px-6 py-3 rounded-xl border border-white/20 font-bold text-xl tracking-widest">
+                AGENCY</div>
+            <div class="bg-white/10 px-6 py-3 rounded-xl border border-white/20 font-bold text-xl tracking-widest">
+                ENTERPRISE</div>
+        </div>
+    </section>
+
+    <!-- Testimonials / Client Results -->
+    <section class="py-20 container mx-auto px-4 max-w-6xl">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-5xl font-bold mb-4">📈 Client Results</h2>
+            <p class="text-xl text-gray-400">इथे real screenshots / video testimonials add केल्यावर conversion खूप
+                वाढतो.</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+            <!-- Testimonial Cards Placeholder -->
+            <div class="glass-card p-6 rounded-2xl">
+                <div class="flex text-accent mb-4">⭐⭐⭐⭐⭐</div>
+                <p class="text-gray-300 italic mb-4">"Within 2 weeks of the system implementation, our lead quality
+                    doubled and CPL dropped by 40%. Highly recommend this 1-to-1 strategy."</p>
+                <div class="flex items-center gap-3">
+                    <div class="w-12 h-12 bg-gray-600 rounded-full"></div>
+                    <div>
+                        <h4 class="font-bold">Rahul M.</h4>
+                        <p class="text-sm text-gray-400">Real Estate Owner</p>
+                    </div>
+                </div>
+            </div>
+            <div class="glass-card p-6 rounded-2xl">
+                <div class="flex text-accent mb-4">⭐⭐⭐⭐⭐</div>
+                <p class="text-gray-300 italic mb-4">"No more wasting time on generic webinars. The custom roadmap they
+                    gave us was exactly what we needed to scale to 10L/month."</p>
+                <div class="flex items-center gap-3">
+                    <div class="w-12 h-12 bg-gray-600 rounded-full"></div>
+                    <div>
+                        <h4 class="font-bold">Sneha P.</h4>
+                        <p class="text-sm text-gray-400">E-commerce Founder</p>
+                    </div>
+                </div>
+            </div>
+            <div class="glass-card p-6 rounded-2xl">
+                <div class="flex text-accent mb-4">⭐⭐⭐⭐⭐</div>
+                <p class="text-gray-300 italic mb-4">"The W.A.R.P framework is a game changer. The automation setup
+                    saved us 20 hours a week while booking more calls."</p>
+                <div class="flex items-center gap-3">
+                    <div class="w-12 h-12 bg-gray-600 rounded-full"></div>
+                    <div>
+                        <h4 class="font-bold">Vikram S.</h4>
+                        <p class="text-sm text-gray-400">B2B Consultant</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Offer & Deliverables -->
+    <section class="py-20 bg-gradient-to-b from-transparent to-slate-900/80">
+        <div class="container mx-auto px-4 max-w-4xl text-center">
+            <h2 class="text-4xl md:text-5xl font-black mb-6">
+                💰 DFY W.A.R.P System
+            </h2>
+            <p class="text-xl text-gray-300 mb-10">
+                एक complete system जो तुमच्या business साठी ads, funnel, automation, tracking आणि support देतो.
+            </p>
+
+            <div class="glass-card rounded-3xl p-8 md:p-12 text-left relative overflow-hidden shadow-2xl">
+                <!-- Decorative element -->
+                <div class="absolute top-0 right-0 w-64 h-64 bg-accent/10 rounded-full blur-3xl"></div>
+
+                <h3 class="text-2xl font-bold mb-6 text-center text-accent">या Consultation मध्ये तुम्हाला काय मिळेल?
+                </h3>
+
+                <div class="grid sm:grid-cols-2 gap-4 mb-8">
+                    <div class="flex items-center gap-3 bg-white/5 p-4 rounded-xl border border-white/10">
+                        <span class="text-emerald-500 text-xl">✔</span>
+                        <span class="font-medium">Meta Ads Campaign Setup</span>
+                    </div>
+                    <div class="flex items-center gap-3 bg-white/5 p-4 rounded-xl border border-white/10">
+                        <span class="text-emerald-500 text-xl">✔</span>
+                        <span class="font-medium">High Converting Landing Page</span>
+                    </div>
+                    <div class="flex items-center gap-3 bg-white/5 p-4 rounded-xl border border-white/10">
+                        <span class="text-emerald-500 text-xl">✔</span>
+                        <span class="font-medium">WhatsApp Automation Setup</span>
+                    </div>
+                    <div class="flex items-center gap-3 bg-white/5 p-4 rounded-xl border border-white/10">
+                        <span class="text-emerald-500 text-xl">✔</span>
+                        <span class="font-medium">Retargeting Setup</span>
+                    </div>
+                    <div class="flex items-center gap-3 bg-white/5 p-4 rounded-xl border border-white/10">
+                        <span class="text-emerald-500 text-xl">✔</span>
+                        <span class="font-medium">Lead Tracking System</span>
+                    </div>
+                    <div class="flex items-center gap-3 bg-white/5 p-4 rounded-xl border border-white/10">
+                        <span class="text-emerald-500 text-xl">✔</span>
+                        <span class="font-medium">AI Based Optimization Support</span>
+                    </div>
+                    <div
+                        class="flex items-center gap-3 bg-white/5 p-4 rounded-xl border border-white/10 sm:col-span-2 justify-center">
+                        <span class="text-emerald-500 text-xl">✔</span>
+                        <span class="font-medium text-accent">6 Months Support</span>
+                    </div>
+                </div>
+
+                <div class="text-center bg-red-950/30 border border-red-500/30 p-4 rounded-xl">
+                    <p class="font-bold text-red-400">🛡️ Guarantee: 14 दिवसांत performance movement दिसली नाही तर
+                        consultation fee refund.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bottom CTA Area (Before footer) -->
+    <section id="booking" class="py-24 container mx-auto px-4 max-w-3xl text-center">
+        <h2 class="text-4xl md:text-5xl font-black mb-4">Webinar पाहणं थांबवा.</h2>
+        <h2 class="text-4xl md:text-5xl font-black text-accent mb-8">Leads मिळवणं सुरू करा.</h2>
+
+        <p class="text-xl text-gray-300 mb-10 leading-relaxed">
+            ₹149 strategy consultation मध्ये तुम्हाला मिळेल: <br>
+            <strong class="text-white">ads audit, growth strategy, funnel roadmap आणि DFY system planning.</strong>
+        </p>
+
+        <a href="#" onclick="openModal(event)"
+            class="cta-button group relative inline-flex items-center justify-center w-full sm:w-auto bg-cta hover:bg-cta-hover text-white font-bold text-xl md:text-2xl rounded-xl overflow-hidden shadow-neon-cta pr-2 pl-8 py-4">
+            <span>👉 ₹149 Strategy Consultation Book करा</span>
+            <div
+                class="cta-icon ml-6 bg-white w-12 h-12 rounded-lg flex items-center justify-center text-cta font-black text-3xl transition-transform duration-300">
+                >
+            </div>
+        </a>
+    </section>
+
+    <!-- Floating Sticky Footer Bar -->
+    <div
+        class="fixed bottom-0 left-0 w-full bg-slate-950/90 backdrop-blur-lg border-t border-slate-800 py-4 px-4 sm:px-6 z-50 shadow-[0_-10px_30px_rgba(0,0,0,0.5)]">
+        <div class="container mx-auto max-w-6xl flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div class="text-center sm:text-left">
+                <p class="font-bold text-white text-sm sm:text-base">1-to-1 Growth Strategy Call</p>
+                <p class="text-accent text-xs sm:text-sm font-semibold">Special Offer: Just ₹149</p>
+            </div>
+            <a href="#" onclick="openModal(event)"
+                class="bg-cta hover:bg-cta-hover text-white px-6 py-2 rounded-lg font-bold text-sm sm:text-base shadow-neon-cta transition-colors flex items-center gap-2">
+                BOOK NOW
+                <span class="bg-white text-cta w-6 h-6 rounded flex items-center justify-center font-black">></span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Booking Modal -->
+    <div id="bookingModal"
+        class="fixed inset-0 z-[100] hidden flex items-center justify-center bg-black/80 backdrop-blur-sm p-4 opacity-0 transition-opacity duration-300">
+        <div class="bg-slate-900 border border-slate-700 w-full max-w-md rounded-2xl p-6 relative shadow-2xl transform scale-95 transition-transform duration-300"
+            id="modalContent">
+
+            <button onclick="closeModal()"
+                class="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                    </path>
+                </svg>
+            </button>
+
+            <h3 class="text-2xl font-bold mb-2">बुक करा Strategy Call</h3>
+            <p class="text-gray-400 text-sm mb-6">कृपया खालील माहिती भरा आणि payment पूर्ण करा.</p>
+
+            <form id="bookingForm" onsubmit="handleFormSubmit(event)" class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-300 mb-1">Full Name</label>
+                    <input type="text" id="name" required
+                        class="w-full bg-slate-800 border border-slate-600 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors"
+                        placeholder="तुमचे नाव">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-300 mb-1">Mobile Number</label>
+                    <input type="tel" id="mobile" required pattern="[0-9]{10}"
+                        class="w-full bg-slate-800 border border-slate-600 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors"
+                        placeholder="10 digit mobile no">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-300 mb-1">City</label>
+                    <input type="text" id="city" required
+                        class="w-full bg-slate-800 border border-slate-600 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors"
+                        placeholder="तुमचे शहर">
+                </div>
+
+                <button type="submit"
+                    class="w-full bg-cta hover:bg-cta-hover text-white font-bold py-3 rounded-xl mt-4 shadow-neon-cta transition-colors">
+                    Proceed to Pay ₹149
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const modal = document.getElementById('bookingModal');
+        const modalContent = document.getElementById('modalContent');
+
+        function openModal(e) {
+            e.preventDefault();
+            modal.classList.remove('hidden');
+            // Small delay to allow display:block to apply before animating opacity
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                modalContent.classList.remove('scale-95');
+            }, 10);
+        }
+
+        function closeModal() {
+            modal.classList.add('opacity-0');
+            modalContent.classList.add('scale-95');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+        }
+
+        function handleFormSubmit(e) {
+            e.preventDefault();
+
+            // Add Loading State
+            const btn = e.target.querySelector('button[type="submit"]');
+            btn.innerHTML = 'Processing...';
+            btn.disabled = true;
+            btn.classList.add('opacity-75', 'cursor-not-allowed');
+
+            // Gather form data
+            const name = document.getElementById('name').value;
+            const mobile = document.getElementById('mobile').value;
+            const city = document.getElementById('city').value;
+
+            // Save to database asynchronously
+            fetch('save_booking.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name, mobile, city })
+            }).catch(err => console.error("Database save failed:", err))
+                .finally(() => {
+                    // Redirect to Razorpay Link regardless of DB save success/failure
+                    btn.innerHTML = 'Redirecting...';
+                    setTimeout(() => {
+                        window.location.href = "https://rzp.io/rzp/Gljk8Cv";
+                    }, 500);
+                });
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="mr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Successful | Personalized W.A.R.P System</title>
+    
+    <!-- Google Fonts: Outfit -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#091321', 
+                        accent: '#F59E0B', 
+                        cta: '#C20E22', 
+                    },
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #091321;
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex items-center justify-center p-4">
+
+    <div class="max-w-lg w-full bg-slate-900/80 backdrop-blur-md border border-slate-700 rounded-3xl p-8 md:p-12 text-center shadow-2xl relative overflow-hidden">
+        
+        <!-- Glow effects -->
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-48 h-48 bg-emerald-500/20 rounded-full blur-3xl"></div>
+
+        <div class="w-24 h-24 bg-emerald-500/20 text-emerald-400 rounded-full flex items-center justify-center mx-auto mb-6 relative z-10">
+            <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+            </svg>
+        </div>
+
+        <h1 class="text-3xl md:text-4xl font-bold mb-4 text-emerald-400 relative z-10">
+            Congratulations! 🎉
+        </h1>
+        <h2 class="text-xl md:text-2xl font-medium mb-4 relative z-10">
+            तुमचा 1-to-1 Strategy Call Successfully Book झाला आहे!
+        </h2>
+        
+        <p class="text-gray-300 mb-8 relative z-10">
+            तुमच्या payment confirmation ची receipt आणि Strategy Call ची link तुम्हाला लवकरच WhatsApp आणि Email वर पाठवली जाईल. 
+            <br><br>
+            Please check your inbox (and spam folder) in the next 10-15 minutes.
+        </p>
+
+        <a href="index.html" class="inline-block bg-slate-800 hover:bg-slate-700 border border-slate-600 text-white font-bold py-3 px-8 rounded-xl transition-colors relative z-10">
+            Return to Homepage
+        </a>
+    </div>
+
+</body>
+</html>
