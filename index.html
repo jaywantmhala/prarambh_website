@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Personalized W.A.R.P System | 1-to-1 Strategy Call</title>
 
-    <!-- Google Fonts: Outfit & Playfair Display -->
+    <!-- Google Fonts: Outfit -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
 
     <!-- Tailwind CSS -->
@@ -103,7 +103,7 @@
         html:not(.dark) h6:not(.gradient-text),
         html:not(.dark) p,
         html:not(.dark) li,
-        html:not(.dark) span:not(.gradient-text):not(.bg-white):not(.text-white):not(.price-font),
+        html:not(.dark) span:not(.gradient-text):not(.bg-white):not(.text-white):not(.price-style),
         html:not(.dark) strong,
         html:not(.dark) .theme-text-main,
         html:not(.dark) .theme-text-muted {
@@ -119,7 +119,7 @@
         html.dark h6:not(.gradient-text),
         html.dark p,
         html.dark li,
-        html.dark span:not(.gradient-text):not(.bg-white):not(.price-font),
+        html.dark span:not(.gradient-text):not(.bg-white):not(.price-style),
         html.dark strong,
         html.dark .theme-text-main,
         html.dark .theme-text-muted {
@@ -204,15 +204,14 @@
             transform: translateY(-2px);
         }
 
-        .price-font {
-            font-family: 'Playfair Display', serif !important;
-            font-style: italic !important;
-            font-weight: 900 !important;
-            display: inline-block !important;
-        }
-
         .fluid-hero-text {
             font-size: clamp(1.1rem, 5.5vw, 1.85rem);
+        }
+
+        .price-style {
+            font-family: 'Outfit', sans-serif !important;
+            font-weight: 900 !important;
+            display: inline-block !important;
         }
 
         @media (min-width: 1024px) {
@@ -286,7 +285,7 @@
         html:not(.dark) .section-light h6:not(.gradient-text),
         html:not(.dark) .section-light p,
         html:not(.dark) .section-light li,
-        html:not(.dark) .section-light span:not(.gradient-text):not(.text-accent):not(.text-emerald-400):not(.text-red-400):not(.text-purple-200):not(.text-emerald-200):not(.text-purple-400):not(.text-white):not(.price-font),
+        html:not(.dark) .section-light span:not(.gradient-text):not(.text-accent):not(.text-emerald-400):not(.text-red-400):not(.text-purple-200):not(.text-emerald-200):not(.text-purple-400):not(.text-white):not(.price-style),
         html:not(.dark) .section-light strong {
             color: #000000 !important;
         }
@@ -432,7 +431,8 @@
                 <div class="pt-6">
                     <a href="#" onclick="openModal(event)"
                         class="hero-btn cta-button group relative inline-flex items-center justify-between w-full sm:w-auto gradient-btn font-black text-lg md:text-xl rounded-full overflow-hidden shadow-neon-cta pr-2 pl-8 py-3.5 transition-all duration-300">
-                        <span class="text-white">₹<span class="price-font text-2xl px-0.5">99</span> Strategy Consultation Book करा</span>
+                        <span class="text-white"><span class="price-style">₹99/-</span> Strategy Consultation Book
+                            करा</span>
                         <div
                             class="cta-icon ml-6 bg-white text-slate-950 w-10 h-10 rounded-full flex items-center justify-center font-black text-2xl transition-transform duration-300">
                             &gt;
@@ -1291,10 +1291,10 @@
                     </div>
                 </div>
 
-                <div class="text-center bg-sky-950/30 border border-accent/30 p-4 rounded-xl">
+                <!-- <div class="text-center bg-sky-950/30 border border-accent/30 p-4 rounded-xl">
                     <p class="font-bold text-accent">🛡️ Guarantee: 14 दिवसांत performance movement दिसली नाही तर
                         consultation fee refund.</p>
-                </div>
+                </div> -->
             </div>
         </div>
     </section>
@@ -1306,13 +1306,15 @@
             <h2 class="text-4xl md:text-5xl font-black text-accent-orange mb-8">Leads मिळवणं सुरू करा.</h2>
 
             <p class="text-xl text-gray-300 mb-10 leading-relaxed">
-                ₹<span class="price-font text-2xl text-accent-orange">99</span> strategy consultation मध्ये तुम्हाला मिळेल: <br>
+                <span class="price-style text-accent-orange">₹99/-</span> strategy consultation मध्ये तुम्हाला
+                मिळेल: <br>
                 <strong class="text-white">ads audit, growth strategy, funnel roadmap आणि DFY system planning.</strong>
             </p>
 
             <a href="#" onclick="openModal(event)"
                 class="cta-button group relative inline-flex items-center justify-center w-full sm:w-auto gradient-btn font-black text-xl md:text-2xl rounded-full overflow-hidden shadow-neon-cta pr-2 pl-8 py-4 transition-all duration-300">
-                <span>👉 ₹<span class="price-font text-2xl md:text-3xl px-0.5">99</span> Strategy Consultation Book करा</span>
+                <span>👉 <span class="price-style">₹99/-</span> Strategy Consultation Book
+                    करा</span>
                 <div
                     class="cta-icon ml-6 bg-white text-slate-950 w-12 h-12 rounded-full flex items-center justify-center font-black text-3xl transition-transform duration-300">
                     &gt;
@@ -1327,7 +1329,7 @@
         <div class="container mx-auto max-w-6xl flex flex-col sm:flex-row justify-between items-center gap-4">
             <div class="text-center sm:text-left">
                 <p class="font-bold text-white text-sm sm:text-base">1-to-1 Growth Strategy Call</p>
-                <p class="text-accent-orange text-xs sm:text-sm font-semibold">Special Offer: Just ₹<span class="price-font text-base sm:text-lg px-0.5">99</span></p>
+                <p class="text-accent-orange text-xs sm:text-sm font-semibold">Special Offer: Just <span class="price-style">₹99/-</span></p>
             </div>
             <a href="#" onclick="openModal(event)"
                 class="gradient-btn px-6 py-2.5 rounded-full font-black text-sm sm:text-base shadow-neon-cta transition-all duration-300 flex items-center gap-2">
@@ -1377,7 +1379,7 @@
 
                 <button type="submit"
                     class="w-full gradient-btn font-black py-3 rounded-full mt-4 shadow-neon-cta transition-all duration-300">
-                    Proceed to Pay ₹<span class="price-font text-xl px-0.5">99</span>
+                    Proceed to Pay <span class="price-style">₹99/-</span>
                 </button>
             </form>
         </div>
