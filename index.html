@@ -6,32 +6,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Personalized W.A.R.P System | 1-to-1 Strategy Call</title>
 
-    <!-- Google Fonts: Outfit -->
+    <!-- Google Fonts: Outfit & Playfair Display -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&display=swap"
         rel="stylesheet">
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
+            darkMode: 'class',
             theme: {
                 extend: {
                     colors: {
-                        primary: '#091321', // Dark blue background
-                        accent: '#38BDF8', // Light Electric Blue accent
-                        cta: '#38BDF8', // Premium Electric Blue CTA Button
-                        'cta-hover': '#ffffff', // Hover state turns to brilliant white!
-                        card: '#0D1D30', // Card background
+                        primary: '#000000', // Pure black canvas
+                        accent: '#1E88E5', // Vibrant Royal Blue
+                        'accent-orange': '#FF5722', // Sunset Orange-Red
+                        card: '#0B0F19', // Premium deep slate card background
                         'card-border': '#1E293B',
                     },
                     fontFamily: {
                         sans: ['Outfit', 'sans-serif'],
                     },
                     boxShadow: {
-                        'neon-accent': '0 0 20px rgba(56, 189, 248, 0.3)',
-                        'neon-cta': '0 0 25px rgba(56, 189, 248, 0.5)', // Electric Blue Neon glow
+                        'neon-accent': '0 0 25px rgba(30, 136, 229, 0.25)',
+                        'neon-cta': '0 10px 30px rgba(30, 136, 229, 0.35)', // Blue Neon glow
                     }
                 }
             }
@@ -39,47 +39,197 @@
     </script>
 
     <style>
+        /* Default: Light Mode Theme variables */
+        :root {
+            --bg-color: #ffffff;
+            --grid-line: rgba(0, 0, 0, 0.035);
+            --text-main: #000000;
+            /* Pure black */
+            --text-muted: #1e293b;
+            /* Deep charcoal/slate */
+            --card-bg: rgba(255, 255, 255, 0.9);
+            --card-border: rgba(0, 0, 0, 0.08);
+            --badge-bg: rgba(0, 0, 0, 0.04);
+            --badge-border: rgba(0, 0, 0, 0.08);
+            --badge-text: #1e293b;
+            --problem-bg: #f8fafc;
+            --compare-bg: #ffffff;
+            --warp-bg: #f8fafc;
+        }
+
+        /* Dark Mode Theme overrides when .dark is present */
+        .dark {
+            --bg-color: #000000;
+            --grid-line: rgba(255, 255, 255, 0.015);
+            --text-main: #ffffff;
+            /* Pure white */
+            --text-muted: #94a3b8;
+            /* Slate 400 */
+            --card-bg: rgba(11, 15, 25, 0.75);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --badge-bg: rgba(255, 255, 255, 0.05);
+            --badge-border: rgba(255, 255, 255, 0.1);
+            --badge-text: #e2e8f0;
+            --problem-bg: rgba(15, 23, 42, 0.5);
+            --compare-bg: #000000;
+            --warp-bg: rgba(0, 0, 0, 0.4);
+        }
+
         body {
-            background-color: #091321;
+            background-color: var(--bg-color);
             background-image:
-                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-            background-size: 40px 40px;
-            color: #ffffff;
+                linear-gradient(var(--grid-line) 1px, transparent 1px),
+                linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+            background-size: 50px 50px;
+            color: var(--text-main);
             overflow-x: hidden;
+            transition: background-color 0.3s ease, color 0.3s ease, background-image 0.3s ease;
         }
 
         .glass-card {
-            background: rgba(13, 29, 48, 0.7);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--card-border);
+            transition: background 0.3s ease, border 0.3s ease, color 0.3s ease;
+        }
+
+        /* Universal text overrides based on theme class for absolute black/white enforcement */
+        html:not(.dark) body,
+        html:not(.dark) h1:not(.gradient-text),
+        html:not(.dark) h2:not(.gradient-text),
+        html:not(.dark) h3:not(.gradient-text),
+        html:not(.dark) h4:not(.gradient-text),
+        html:not(.dark) h5:not(.gradient-text),
+        html:not(.dark) h6:not(.gradient-text),
+        html:not(.dark) p,
+        html:not(.dark) li,
+        html:not(.dark) span:not(.gradient-text):not(.bg-white):not(.text-white):not(.price-font),
+        html:not(.dark) strong,
+        html:not(.dark) .theme-text-main,
+        html:not(.dark) .theme-text-muted {
+            color: #000000 !important;
+        }
+
+        html.dark body,
+        html.dark h1:not(.gradient-text),
+        html.dark h2:not(.gradient-text),
+        html.dark h3:not(.gradient-text),
+        html.dark h4:not(.gradient-text),
+        html.dark h5:not(.gradient-text),
+        html.dark h6:not(.gradient-text),
+        html.dark p,
+        html.dark li,
+        html.dark span:not(.gradient-text):not(.bg-white):not(.price-font),
+        html.dark strong,
+        html.dark .theme-text-main,
+        html.dark .theme-text-muted {
+            color: #ffffff !important;
+        }
+
+        /* Force always-dark elements to remain dark in both light and dark modes */
+        .always-dark {
+            background-color: #000000 !important;
+            background-image:
+                linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px) !important;
+            background-size: 50px 50px !important;
+            border-color: rgba(255, 255, 255, 0.08) !important;
+        }
+
+        .always-dark h1:not(.gradient-text),
+        .always-dark h2:not(.gradient-text),
+        .always-dark h3:not(.gradient-text),
+        .always-dark h4:not(.gradient-text),
+        .always-dark h5:not(.gradient-text),
+        .always-dark h6:not(.gradient-text),
+        .always-dark p,
+        .always-dark li,
+        .always-dark span:not(.gradient-text):not(.bg-white),
+        .always-dark strong {
+            color: #ffffff !important;
+        }
+
+        /* Specificity correction for Light Mode */
+        html:not(.dark) .always-dark h1:not(.gradient-text),
+        html:not(.dark) .always-dark h2:not(.gradient-text),
+        html:not(.dark) .always-dark h3:not(.gradient-text),
+        html:not(.dark) .always-dark h4:not(.gradient-text),
+        html:not(.dark) .always-dark h5:not(.gradient-text),
+        html:not(.dark) .always-dark h6:not(.gradient-text),
+        html:not(.dark) .always-dark p,
+        html:not(.dark) .always-dark li,
+        html:not(.dark) .always-dark span:not(.gradient-text):not(.bg-white),
+        html:not(.dark) .always-dark strong,
+        html:not(.dark) .always-dark .theme-text-main,
+        html:not(.dark) .always-dark .theme-text-muted {
+            color: #ffffff !important;
+        }
+
+        .always-dark p,
+        html:not(.dark) .always-dark p {
+            color: #94a3b8 !important;
+            /* Slate 400 for secondary copy */
+        }
+
+        .always-dark .glass-card {
+            background: rgba(11, 15, 25, 0.75) !important;
+            border: 1px solid rgba(255, 255, 255, 0.08) !important;
+        }
+
+        .theme-text-main {
+            transition: color 0.3s ease;
+        }
+
+        .theme-text-muted {
+            transition: color 0.3s ease;
         }
 
         .gradient-text {
-            background: linear-gradient(to right, #38BDF8, #ffffff);
+            background: linear-gradient(90deg, #38BDF8 0%, #8B5CF6 50%, #FF5722 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
+        .gradient-btn {
+            background-color: #1E88E5 !important;
+            background-image: none !important;
+            color: #ffffff !important;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .gradient-btn:hover {
+            background-color: #1565C0 !important;
+            background-image: none !important;
+            box-shadow: 0 10px 30px rgba(30, 136, 229, 0.45);
+            transform: translateY(-2px);
+        }
+
+        .price-font {
+            font-family: 'Playfair Display', serif !important;
+            font-style: italic !important;
+            font-weight: 900 !important;
+            display: inline-block !important;
+        }
+
         .fluid-hero-text {
-            font-size: clamp(1.3rem, 6.7vw, 2.3rem);
+            font-size: clamp(1.1rem, 5.5vw, 1.85rem);
         }
 
         @media (min-width: 1024px) {
             .fluid-hero-text {
-                font-size: 2.35rem;
+                font-size: 1.95rem;
             }
         }
 
         @media (min-width: 1280px) {
             .fluid-hero-text {
-                font-size: 3.1rem;
+                font-size: 2.5rem;
             }
         }
 
         @media (min-width: 1536px) {
             .fluid-hero-text {
-                font-size: 3.75rem;
+                font-size: 3.0rem;
             }
         }
 
@@ -110,46 +260,149 @@
         .animate-infinite-scroll:hover {
             animation-play-state: paused;
         }
+
+        /* ============================================
+           ALTERNATING SECTION COLOURS — LIGHT MODE
+           Odd sections = white bg + black text
+           Even sections = black bg + white text
+           always-dark stays black in BOTH modes
+           Dark mode: all sections stay dark (overridden by html.dark)
+        ============================================ */
+
+        /* Light-mode white section */
+        html:not(.dark) .section-light {
+            background-color: #ffffff !important;
+            background-image:
+                linear-gradient(rgba(0, 0, 0, 0.035) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 0, 0, 0.035) 1px, transparent 1px) !important;
+            background-size: 50px 50px !important;
+        }
+
+        html:not(.dark) .section-light h1:not(.gradient-text),
+        html:not(.dark) .section-light h2:not(.gradient-text),
+        html:not(.dark) .section-light h3:not(.gradient-text),
+        html:not(.dark) .section-light h4:not(.gradient-text),
+        html:not(.dark) .section-light h5:not(.gradient-text),
+        html:not(.dark) .section-light h6:not(.gradient-text),
+        html:not(.dark) .section-light p,
+        html:not(.dark) .section-light li,
+        html:not(.dark) .section-light span:not(.gradient-text):not(.text-accent):not(.text-emerald-400):not(.text-red-400):not(.text-purple-200):not(.text-emerald-200):not(.text-purple-400):not(.text-white):not(.price-font),
+        html:not(.dark) .section-light strong {
+            color: #000000 !important;
+        }
+
+        html:not(.dark) .section-light .glass-card {
+            background: rgba(248, 250, 252, 0.9) !important;
+            border: 1px solid rgba(0, 0, 0, 0.08) !important;
+        }
+
+        /* Make dark inner cards light in section-light */
+        html:not(.dark) .section-light [class*="bg-slate-950"] {
+            background-color: rgba(241, 245, 249, 0.8) !important;
+        }
+
+        html:not(.dark) .section-light [class*="border-slate-800"] {
+            border-color: rgba(0, 0, 0, 0.1) !important;
+        }
+
+        html:not(.dark) .section-light .text-gray-400,
+        html:not(.dark) .section-light .text-gray-300 {
+            color: #475569 !important;
+        }
+
+        /* Light-mode black section */
+        html:not(.dark) .section-dark {
+            background-color: #000000 !important;
+            background-image:
+                linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px) !important;
+            background-size: 50px 50px !important;
+            border-color: rgba(255, 255, 255, 0.08) !important;
+        }
+
+        html:not(.dark) .section-dark h1:not(.gradient-text),
+        html:not(.dark) .section-dark h2:not(.gradient-text),
+        html:not(.dark) .section-dark h3:not(.gradient-text),
+        html:not(.dark) .section-dark h4:not(.gradient-text),
+        html:not(.dark) .section-dark h5:not(.gradient-text),
+        html:not(.dark) .section-dark h6:not(.gradient-text),
+        html:not(.dark) .section-dark p,
+        html:not(.dark) .section-dark li,
+        html:not(.dark) .section-dark span:not(.gradient-text):not(.text-accent):not(.text-emerald-400):not(.text-red-400):not(.text-purple-200):not(.text-emerald-200):not(.text-purple-400),
+        html:not(.dark) .section-dark strong {
+            color: #ffffff !important;
+        }
+
+        html:not(.dark) .section-dark p,
+        html:not(.dark) .section-dark .text-gray-400,
+        html:not(.dark) .section-dark .text-gray-300,
+        html:not(.dark) .section-dark .text-gray-200,
+        html:not(.dark) .section-dark .text-gray-500 {
+            color: #94a3b8 !important;
+        }
+
+        html:not(.dark) .section-dark .glass-card {
+            background: rgba(11, 15, 25, 0.75) !important;
+            border: 1px solid rgba(255, 255, 255, 0.08) !important;
+        }
     </style>
 </head>
 
 <body class="antialiased pb-24">
 
-    <!-- Top Announcement Banner -->
     <div
-        class="w-full py-2.5 bg-accent text-black text-center font-bold text-sm tracking-wide z-50 sticky top-0 shadow-md">
-        Webinar पाहणे थांबवा आणि 1-to-1 Strategy Call बुक करा </div>
+        class="w-full py-3 bg-[#1E88E5] text-white text-center font-black text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl tracking-wide z-50 sticky top-0 shadow-md">
+        Business Owners साठी Personalized W.A.R.P System
+    </div>
 
-    <!-- Hero Section -->
-    <section class="container mx-auto px-4 py-12 lg:py-20 max-w-7xl">
+    <!-- Dark/Light Mode Floating Toggle -->
+    <button onclick="toggleTheme()" id="themeToggle"
+        class="fixed top-20 right-4 sm:right-8 z-[90] flex items-center justify-center w-12 h-12 rounded-full bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-800 shadow-xl transition-all duration-300 hover:scale-110 active:scale-95 focus:outline-none"
+        title="Toggle Theme">
+        <!-- Sun Icon (visible in Dark mode) -->
+        <svg id="sunIcon"
+            class="hidden w-6 h-6 text-yellow-400 transition-transform duration-500 rotate-90 dark:rotate-0"
+            fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd"
+                d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464-4.95a1 1 0 111.414 1.414L14.14 7.278a1 1 0 11-1.414-1.414l.793-.793zM18 10a1 1 0 01-1 1h-1a1 1 0 110-2h1a1 1 0 011 1zm-4.95 4.95a1 1 0 111.414-1.414l.793.793a1 1 0 11-1.414 1.414l-.793-.793zM10 16a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 12.95a1 1 0 111.414 1.414l-.793.793a1 1 0 11-1.414-1.414l.793-.793zm-2-2.95a1 1 0 011-1h1a1 1 0 110 2H4a1 1 0 01-1-1zm2.95-4.95a1 1 0 11-1.414-1.414l.793-.793A1 1 0 116 5.05L5.05 4.05z"
+                clip-rule="evenodd"></path>
+        </svg>
+        <!-- Moon Icon (visible in Light mode) -->
+        <svg id="moonIcon" class="w-6 h-6 text-slate-700 transition-transform duration-500 rotate-0 dark:rotate-90"
+            fill="currentColor" viewBox="0 0 20 20">
+            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+        </svg>
+    </button>
+
+    <!-- Hero Section (1 – WHITE) -->
+    <section class="section-light container mx-auto px-4 py-12 lg:py-20 max-w-7xl">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
             <!-- Left Column: Copy -->
             <div class="space-y-6">
-                <div class="hero-badge inline-flex items-center gap-2 bg-white/10 px-4 py-2 rounded-full border border-white/20">
+                <div
+                    class="hero-badge inline-flex items-center gap-2 bg-slate-100 dark:bg-white/5 px-4 py-2 rounded-full border border-slate-200 dark:border-white/10">
                     <span class="text-accent text-xl">⭐</span>
-                    <span class="text-sm font-semibold tracking-wide text-gray-200">Exclusive 1-to-1 Strategy</span>
+                    <span class="text-sm font-semibold tracking-wide theme-text-muted">Exclusive 1-to-1 Strategy</span>
                 </div>
 
                 <h1 class="fluid-hero-text font-extrabold leading-tight">
-                    <span class="hero-title-line block whitespace-nowrap">Business Owners साठी</span>
+                    <span class="hero-title-line block whitespace-nowrap theme-text-main">Webinar पाहणे थांबवा</span>
                     <span class="hero-title-line relative block whitespace-nowrap mt-1">
-                        <span class="text-white">Personalized</span> <span class="text-accent">W.A.R.P System</span>
-                        <svg class="absolute w-full h-3 -bottom-0.5 left-0 text-accent" viewBox="0 0 100 10"
+                        <span class="theme-text-main">आणि 1-to-1</span> <span class="gradient-text">Strategy Call बुक
+                            करा</span>
+                        <svg class="absolute w-full h-3 -bottom-0.5 left-0 text-accent-orange" viewBox="0 0 100 10"
                             preserveAspectRatio="none">
                             <path d="M0 5 Q 50 10 100 5" stroke="currentColor" stroke-width="4" fill="transparent" />
                         </svg>
                     </span>
                 </h1>
 
-                <!-- <h2 class="text-2xl md:text-3xl font-bold text-gray-100 mt-4">
-                    Webinar पाहणे थांबवा आणि 1-to-1 Strategy Call बुक करा
-                </h2> -->
-
-                <p class="hero-para text-gray-400 text-lg md:text-xl leading-relaxed">
+                <p class="hero-para theme-text-muted text-lg md:text-xl leading-relaxed">
                     Webinar मध्ये 30-40 लोक असतात. तिथे general माहिती मिळते, पण तुमच्या business बद्दल exact clarity
                     मिळत नाही.
-                    <strong class="text-white font-semibold">1-to-1 call मध्ये आम्ही तुमच्या business साठी exact ads
+                    <strong class="theme-text-main font-semibold">1-to-1 call मध्ये आम्ही तुमच्या business साठी exact
+                        ads
                         audit, funnel analysis आणि growth roadmap देतो.</strong>
                 </p>
 
@@ -157,31 +410,31 @@
                 <div class="flex flex-col gap-3 mt-6">
                     <div class="hero-prop flex items-center gap-3">
                         <div
-                            class="w-8 h-8 rounded-full bg-accent/20 flex items-center justify-center text-accent text-xl">
+                            class="w-8 h-8 rounded-full bg-accent/10 dark:bg-accent/15 flex items-center justify-center text-accent text-xl font-bold">
                             🎥</div>
-                        <span class="text-lg font-medium text-gray-200">Personalized Strategy</span>
+                        <span class="text-lg font-medium theme-text-main">Personalized Strategy</span>
                     </div>
                     <div class="hero-prop flex items-center gap-3">
                         <div
-                            class="w-8 h-8 rounded-full bg-accent/20 flex items-center justify-center text-accent text-xl">
+                            class="w-8 h-8 rounded-full bg-accent/10 dark:bg-accent/15 flex items-center justify-center text-accent text-xl font-bold">
                             🎯</div>
-                        <span class="text-lg font-medium text-gray-200">Generic Webinar नाही</span>
+                        <span class="text-lg font-medium theme-text-main">Generic Webinar नाही</span>
                     </div>
                     <div class="hero-prop flex items-center gap-3">
                         <div
-                            class="w-8 h-8 rounded-full bg-accent/20 flex items-center justify-center text-accent text-xl">
+                            class="w-8 h-8 rounded-full bg-accent/10 dark:bg-accent/15 flex items-center justify-center text-accent text-xl font-bold">
                             🚀</div>
-                        <span class="text-lg font-medium text-gray-200">Direct Growth Plan</span>
+                        <span class="text-lg font-medium theme-text-main">Direct Growth Plan</span>
                     </div>
                 </div>
 
                 <!-- CTA Button -->
                 <div class="pt-6">
                     <a href="#" onclick="openModal(event)"
-                        class="hero-btn cta-button group relative inline-flex items-center justify-between w-full sm:w-auto bg-cta hover:bg-cta-hover text-slate-950 hover:text-slate-950 font-black text-lg md:text-xl rounded-xl overflow-hidden shadow-neon-cta pr-2 pl-8 py-3 transition-all duration-300">
-                        <span>₹99 Strategy Consultation Book करा</span>
+                        class="hero-btn cta-button group relative inline-flex items-center justify-between w-full sm:w-auto gradient-btn font-black text-lg md:text-xl rounded-full overflow-hidden shadow-neon-cta pr-2 pl-8 py-3.5 transition-all duration-300">
+                        <span class="text-white">₹<span class="price-font text-2xl px-0.5">99</span> Strategy Consultation Book करा</span>
                         <div
-                            class="cta-icon ml-6 bg-slate-950 text-white w-10 h-10 rounded-lg flex items-center justify-center font-black text-2xl transition-transform duration-300">
+                            class="cta-icon ml-6 bg-white text-slate-950 w-10 h-10 rounded-full flex items-center justify-center font-black text-2xl transition-transform duration-300">
                             &gt;
                         </div>
                     </a>
@@ -211,10 +464,10 @@
     </section>
 
     <!-- Problem / Hook Section -->
-    <section class="py-16 bg-slate-900/50 border-y border-slate-800">
+    <section class="always-dark py-16 border-y border-slate-800">
         <div class="container mx-auto px-4 max-w-4xl text-center">
             <h2 class="problem-title text-3xl md:text-4xl font-bold mb-6">
-                <span class="text-accent">⚠️ Ads चालू आहेत पण Leads येत नाहीत?</span><br>
+                <span class="gradient-text font-black">⚠️ Ads चालू आहेत पण Leads येत नाहीत?</span><br>
                 <span class="text-2xl md:text-3xl text-gray-300 mt-2 block font-medium">ही समस्या बहुतेक business owners
                     face करतात.</span>
             </h2>
@@ -222,22 +475,22 @@
             <p class="problem-title text-xl text-gray-400 mb-10">मार्केटिंग शिकणं थांबवा. ग्राहक मिळवणं सुरू करा.</p>
 
             <div class="grid sm:grid-cols-2 gap-6 text-left">
-                <div class="problem-card glass-card p-6 rounded-2xl">
-                    <div class="text-accent text-3xl mb-4">⚙️</div>
-                    <h3 class="text-xl font-bold mb-2">Done-For-You System</h3>
+                <div class="problem-card glass-card p-6 rounded-2xl border border-white/5 shadow-neon-accent/5">
+                    <div class="text-accent-orange text-3xl mb-4">⚙️</div>
+                    <h3 class="text-xl font-bold mb-2 text-white">Done-For-You System</h3>
                     <p class="text-gray-400">जो ads + funnel + automation integrate करतो.</p>
                 </div>
-                <div class="problem-card glass-card p-6 rounded-2xl">
-                    <div class="text-accent text-3xl mb-4">📈</div>
-                    <h3 class="text-xl font-bold mb-2">Predictable Leads</h3>
+                <div class="problem-card glass-card p-6 rounded-2xl border border-white/5 shadow-neon-accent/5">
+                    <div class="text-accent-orange text-3xl mb-4">📈</div>
+                    <h3 class="text-xl font-bold mb-2 text-white">Predictable Leads</h3>
                     <p class="text-gray-400">Facebook & Instagram Ads वापरून monthly consistent lead flow तयार करतो.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Comparison Section -->
-    <section class="py-20 container mx-auto px-4 max-w-5xl">
+    <!-- Comparison Section (3 – BLACK in light mode) -->
+    <section class="section-light py-20 container mx-auto px-4 max-w-5xl">
         <div class="compare-header text-center mb-12">
             <h2 class="text-3xl md:text-5xl font-bold mb-4">Webinar <span class="text-gray-500">vs</span> 1-to-1
                 Strategy Call</h2>
@@ -245,33 +498,35 @@
         </div>
 
         <div class="grid md:grid-cols-2 gap-8">
-            <!-- Webinar (Slate) -->
-            <div class="compare-card bg-slate-900/40 border border-slate-800 rounded-2xl p-8 relative overflow-hidden">
-                <div class="absolute top-0 right-0 bg-slate-800 text-slate-400 px-4 py-1 rounded-bl-xl font-bold text-xs uppercase tracking-wider">
+            <!-- Webinar (Maroon / Pain Points) -->
+            <div
+                class="compare-card bg-red-950/15 border-2 border-red-500/30 rounded-2xl p-8 relative overflow-hidden shadow-[0_0_30px_rgba(239,68,68,0.05)]">
+                <div
+                    class="absolute top-0 right-0 bg-red-500/20 text-red-400 px-4 py-1 rounded-bl-xl font-bold text-xs uppercase tracking-wider">
                     Generic</div>
-                <h3 class="text-2xl font-bold text-slate-400 mb-6 flex items-center gap-3">
-                    <svg class="w-8 h-8 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <h3 class="text-2xl font-bold text-red-400 mb-6 flex items-center gap-3">
+                    <svg class="w-8 h-8 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                     </svg>
                     Webinar (30-40+ लोक)
                 </h3>
                 <ul class="space-y-4">
-                    <li class="flex items-start gap-3 text-gray-400">
-                        <span class="text-slate-500 mt-1">❌</span> General माहिती, specific solution नाही.
+                    <li class="flex items-start gap-3 text-gray-300">
+                        <span class="text-red-500 mt-1">❌</span> General माहिती, specific solution नाही.
                     </li>
-                    <li class="flex items-start gap-3 text-gray-400">
-                        <span class="text-slate-500 mt-1">❌</span> तुमचे प्रश्न विचारायला वेळ मिळत नाही.
+                    <li class="flex items-start gap-3 text-gray-300">
+                        <span class="text-red-500 mt-1">❌</span> तुमचे प्रश्न विचारायला वेळ मिळत नाही.
                     </li>
-                    <li class="flex items-start gap-3 text-gray-400">
-                        <span class="text-slate-500 mt-1">❌</span> Business चा exact problem समजत नाही.
+                    <li class="flex items-start gap-3 text-gray-300">
+                        <span class="text-red-500 mt-1">❌</span> Business चा exact problem समजत नाही.
                     </li>
                 </ul>
             </div>
 
-            <!-- 1-to-1 Call (Green) -->
+            <!-- 1-to-1 Call (Green / Automated Wins) -->
             <div
-                class="compare-card bg-emerald-950/20 border-2 border-emerald-500/60 rounded-2xl p-8 relative overflow-hidden shadow-[0_0_30px_rgba(16,185,129,0.1)]">
+                class="compare-card bg-emerald-950/20 border-2 border-emerald-500/50 rounded-2xl p-8 relative overflow-hidden shadow-[0_0_30px_rgba(16,185,129,0.15)]">
                 <div class="absolute top-0 right-0 bg-emerald-500 text-white px-4 py-1 rounded-bl-xl font-bold text-sm">
                     Personalized</div>
                 <h3 class="text-2xl font-bold text-emerald-400 mb-6 flex items-center gap-3">
@@ -282,13 +537,13 @@
                     1-to-1 Strategy Call
                 </h3>
                 <ul class="space-y-4">
-                    <li class="flex items-start gap-3 text-gray-300">
+                    <li class="flex items-start gap-3 text-gray-200">
                         <span class="text-emerald-500 mt-1">✅</span> तुमच्या business साठी exact ads audit.
                     </li>
-                    <li class="flex items-start gap-3 text-gray-300">
+                    <li class="flex items-start gap-3 text-gray-200">
                         <span class="text-emerald-500 mt-1">✅</span> Funnel analysis आणि custom roadmap.
                     </li>
-                    <li class="flex items-start gap-3 text-gray-300">
+                    <li class="flex items-start gap-3 text-gray-200">
                         <span class="text-emerald-500 mt-1">✅</span> 100% focus फक्त तुमच्या growth वर.
                     </li>
                 </ul>
@@ -297,11 +552,11 @@
     </section>
 
     <!-- Framework Section -->
-    <section class="py-20 bg-black/40">
+    <section class="always-dark py-20">
         <div class="container mx-auto px-4 max-w-6xl">
             <div class="warp-header text-center mb-16">
-                <h2 class="text-3xl md:text-5xl font-bold mb-4">
-                    🚀 DFY AI + Meta <span class="text-accent">W.A.R.P</span> Funnel System
+                <h2 class="text-3xl md:text-5xl font-bold mb-4 text-white">
+                    🚀 DFY AI + Meta <span class="gradient-text font-black">W.A.R.P</span> Funnel System
                 </h2>
                 <p class="text-xl text-gray-400">हा फक्त ad setup नाही. हा complete lead generation system आहे.</p>
             </div>
@@ -309,7 +564,7 @@
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <!-- Framework Image/Diagram -->
                 <div class="warp-image glass-card p-4 rounded-3xl relative">
-                    <div class="absolute inset-0 bg-gradient-to-tr from-accent/20 to-transparent rounded-3xl"></div>
+                    <div class="absolute inset-0 bg-gradient-to-tr from-accent/15 to-transparent rounded-3xl"></div>
                     <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
                         alt="WARP Framework"
                         class="rounded-2xl w-full h-auto relative z-10 opacity-80 mix-blend-luminosity">
@@ -317,8 +572,8 @@
 
                 <!-- Text -->
                 <div>
-                    <h3 class="text-3xl font-bold mb-6 flex items-center gap-3">
-                        <span class="text-4xl text-accent">⚙️</span>
+                    <h3 class="text-3xl font-bold mb-6 text-white flex items-center gap-3">
+                        <span class="text-4xl">⚙️</span>
                         W.A.R.P Framework
                     </h3>
                     <p class="text-lg text-gray-300 leading-relaxed mb-8">
@@ -328,41 +583,45 @@
                     <div class="space-y-4">
                         <div class="warp-item flex items-start gap-4 glass-card p-4 rounded-xl">
                             <div
-                                class="w-10 h-10 rounded-full bg-accent text-black font-bold flex items-center justify-center shrink-0">
+                                class="w-10 h-10 rounded-full bg-gradient-to-r from-[#1E88E5] to-[#FF5722] text-white font-bold flex items-center justify-center shrink-0">
                                 W</div>
                             <div>
-                                <h4 class="font-bold text-lg">Winning Ad Creatives</h4>
-                                <p class="text-sm text-gray-400">AI and data-driven ad angles that attract high-quality
+                                <h4 class="font-bold text-lg text-white">Winning Ad Creatives</h4>
+                                <p class="text-sm text-gray-400 mt-0.5">AI and data-driven ad angles that attract
+                                    high-quality
                                     prospects.</p>
                             </div>
                         </div>
                         <div class="warp-item flex items-start gap-4 glass-card p-4 rounded-xl">
                             <div
-                                class="w-10 h-10 rounded-full bg-accent text-black font-bold flex items-center justify-center shrink-0">
+                                class="w-10 h-10 rounded-full bg-gradient-to-r from-[#1E88E5] to-[#FF5722] text-white font-bold flex items-center justify-center shrink-0">
                                 A</div>
                             <div>
-                                <h4 class="font-bold text-lg">Automated Funnel</h4>
-                                <p class="text-sm text-gray-400">High-converting landing pages that sell for you 24/7.
+                                <h4 class="font-bold text-lg text-white">Automated Funnel</h4>
+                                <p class="text-sm text-gray-400 mt-0.5">High-converting landing pages that sell for you
+                                    24/7.
                                 </p>
                             </div>
                         </div>
                         <div class="warp-item flex items-start gap-4 glass-card p-4 rounded-xl">
                             <div
-                                class="w-10 h-10 rounded-full bg-accent text-black font-bold flex items-center justify-center shrink-0">
+                                class="w-10 h-10 rounded-full bg-gradient-to-r from-[#1E88E5] to-[#FF5722] text-white font-bold flex items-center justify-center shrink-0">
                                 R</div>
                             <div>
-                                <h4 class="font-bold text-lg">Retargeting Engine</h4>
-                                <p class="text-sm text-gray-400">Capture lost traffic and convert them with precise
+                                <h4 class="font-bold text-lg text-white">Retargeting Engine</h4>
+                                <p class="text-sm text-gray-400 mt-0.5">Capture lost traffic and convert them with
+                                    precise
                                     remarketing.</p>
                             </div>
                         </div>
                         <div class="warp-item flex items-start gap-4 glass-card p-4 rounded-xl">
                             <div
-                                class="w-10 h-10 rounded-full bg-accent text-black font-bold flex items-center justify-center shrink-0">
+                                class="w-10 h-10 rounded-full bg-gradient-to-r from-[#1E88E5] to-[#FF5722] text-white font-bold flex items-center justify-center shrink-0">
                                 P</div>
                             <div>
-                                <h4 class="font-bold text-lg">Predictable Tracking</h4>
-                                <p class="text-sm text-gray-400">Know exactly where your leads come from and scale
+                                <h4 class="font-bold text-lg text-white">Predictable Tracking</h4>
+                                <p class="text-sm text-gray-400 mt-0.5">Know exactly where your leads come from and
+                                    scale
                                     profitably.</p>
                             </div>
                         </div>
@@ -372,32 +631,13 @@
         </div>
     </section>
 
-    <!-- Social Proof / Brands -->
-    <section class="brands-section py-24 bg-slate-950/40 border-y border-slate-800 overflow-hidden relative w-full">
-        <!-- Gradient overlays on left/right for smooth fadeout effect -->
-        <div
-            class="absolute inset-y-0 left-0 w-16 sm:w-28 bg-gradient-to-r from-[#091321] to-transparent z-10 pointer-events-none">
-        </div>
-        <div
-            class="absolute inset-y-0 right-0 w-16 sm:w-28 bg-gradient-to-l from-[#091321] to-transparent z-10 pointer-events-none">
-        </div>
+    <!-- Social Proof / Brands (5 – WHITE in light mode) -->
+    <section
+        class="section-light brands-section py-24 border-y border-slate-200 dark:border-slate-800 overflow-hidden relative w-full">
+
 
         <div class="container mx-auto px-4 max-w-7xl text-center mb-12">
-            <h3 class="text-3xl md:text-4xl font-extrabold mb-3 text-white">⭐ Brands & Businesses We Have Worked With
-            </h3>
-            <p class="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto">ही section trust build करण्यासाठी खूप
-                important आहे.</p>
-        </div>rflow-hidden relative w-full">
-        <!-- Gradient overlays on left/right for smooth fadeout effect -->
-        <div
-            class="absolute inset-y-0 left-0 w-16 sm:w-28 bg-gradient-to-r from-[#091321] to-transparent z-10 pointer-events-none">
-        </div>
-        <div
-            class="absolute inset-y-0 right-0 w-16 sm:w-28 bg-gradient-to-l from-[#091321] to-transparent z-10 pointer-events-none">
-        </div>
-
-        <div class="container mx-auto px-4 max-w-7xl text-center mb-12">
-            <h3 class="text-3xl md:text-4xl font-extrabold mb-3 text-white">⭐ Brands & Businesses We Have Worked With
+            <h3 class="text-3xl md:text-4xl font-extrabold mb-3">⭐ Brands & Businesses We Have Worked With
             </h3>
             <p class="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto">ही section trust build करण्यासाठी खूप
                 important आहे.</p>
@@ -565,8 +805,8 @@
         </div>
     </section>
 
-    <!-- Video Testimonials & Success Stories -->
-    <section class="py-24 bg-slate-950/20 border-t border-slate-800">
+    <!-- Video Testimonials & Success Stories (6 – WHITE in light mode) -->
+    <section class="section-dark py-24 border-t border-slate-200 dark:border-slate-800">
         <div class="container mx-auto px-4 max-w-6xl text-center">
 
             <div
@@ -575,8 +815,10 @@
                 <span class="text-xs font-bold uppercase tracking-wider text-purple-200">Video Testimonials</span>
             </div>
 
-            <h2 class="testimonial-header text-3xl md:text-5xl font-black mb-4">आमचे Successful Clients काय म्हणतात?</h2>
-            <p class="testimonial-header text-xl text-gray-400 mb-12 max-w-2xl mx-auto">1-to-1 W.A.R.P system मुळे clients ला मिळालेले real
+            <h2 class="testimonial-header text-3xl md:text-5xl font-black mb-4">आमचे Successful Clients काय म्हणतात?
+            </h2>
+            <p class="testimonial-header text-xl text-gray-400 mb-12 max-w-2xl mx-auto">1-to-1 W.A.R.P system मुळे
+                clients ला मिळालेले real
                 results आणि त्यांचे experiences पहा.</p>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -591,10 +833,10 @@
                             Your browser does not support the video tag.
                         </video>
                     </div>
-                    <div class="p-4 bg-slate-950/80 border-t border-slate-800 text-left">
+                    <!-- <div class="p-4 bg-slate-950/80 border-t border-slate-800 text-left">
                         <h4 class="font-extrabold text-white text-base">Prarambh Success Story 01</h4>
                         <p class="text-xs text-accent font-semibold mt-1">⭐ Direct Client Experience</p>
-                    </div>
+                    </div> -->
                 </div>
 
                 <!-- Video 2: Prarambh Customer Review 02 -->
@@ -606,10 +848,10 @@
                             Your browser does not support the video tag.
                         </video>
                     </div>
-                    <div class="p-4 bg-slate-950/80 border-t border-slate-800 text-left">
+                    <!-- <div class="p-4 bg-slate-950/80 border-t border-slate-800 text-left">
                         <h4 class="font-extrabold text-white text-base">Prarambh Success Story 02</h4>
                         <p class="text-xs text-accent font-semibold mt-1">⭐ Scaling & Funnel Setup</p>
-                    </div>
+                    </div> -->
                 </div>
 
                 <!-- Video 3: Yoga Coach Success Story -->
@@ -622,10 +864,10 @@
                             Your browser does not support the video tag.
                         </video>
                     </div>
-                    <div class="p-4 bg-slate-950/80 border-t border-slate-800 text-left">
+                    <!-- <div class="p-4 bg-slate-950/80 border-t border-slate-800 text-left">
                         <h4 class="font-extrabold text-white text-base">Yoga Coach Success Story</h4>
                         <p class="text-xs text-accent font-semibold mt-1">⭐ Lead Automation setup</p>
-                    </div>
+                    </div> -->
                 </div>
 
                 <!-- Video 4: Customer Revive Strategy -->
@@ -638,10 +880,10 @@
                             Your browser does not support the video tag.
                         </video>
                     </div>
-                    <div class="p-4 bg-slate-950/80 border-t border-slate-800 text-left">
+                    <!-- <div class="p-4 bg-slate-950/80 border-t border-slate-800 text-left">
                         <h4 class="font-extrabold text-white text-base">Customer Revive Campaign</h4>
                         <p class="text-xs text-accent font-semibold mt-1">⭐ Return on Ad Spend Boost</p>
-                    </div>
+                    </div> -->
                 </div>
 
                 <!-- Video 5: Client Feedback Audit -->
@@ -653,10 +895,10 @@
                             Your browser does not support the video tag.
                         </video>
                     </div>
-                    <div class="p-4 bg-slate-950/80 border-t border-slate-800 text-left">
+                    <!-- <div class="p-4 bg-slate-950/80 border-t border-slate-800 text-left">
                         <h4 class="font-extrabold text-white text-base">Client Feedback & Results</h4>
                         <p class="text-xs text-accent font-semibold mt-1">⭐ Strategic Campaign Audit</p>
-                    </div>
+                    </div> -->
                 </div>
 
                 <!-- Video 6: Video-670 case study -->
@@ -668,10 +910,10 @@
                             Your browser does not support the video tag.
                         </video>
                     </div>
-                    <div class="p-4 bg-slate-950/80 border-t border-slate-800 text-left">
+                    <!-- <div class="p-4 bg-slate-950/80 border-t border-slate-800 text-left">
                         <h4 class="font-extrabold text-white text-base">Growth Case Study A</h4>
                         <p class="text-xs text-accent font-semibold mt-1">⭐ Predictable Leads Flow</p>
-                    </div>
+                    </div> -->
                 </div>
 
                 <!-- Video 7: Video-692 case study -->
@@ -683,28 +925,29 @@
                             Your browser does not support the video tag.
                         </video>
                     </div>
-                    <div class="p-4 bg-slate-950/80 border-t border-slate-800 text-left">
+                    <!-- <div class="p-4 bg-slate-950/80 border-t border-slate-800 text-left">
                         <h4 class="font-extrabold text-white text-base">Growth Case Study B</h4>
                         <p class="text-xs text-accent font-semibold mt-1">⭐ Performance Optimization</p>
-                    </div>
+                    </div> -->
                 </div>
 
             </div>
         </div>
     </section>
 
-    <!-- Results Screenshots & Client Feedback -->
-    <section class="py-24 bg-slate-900/20 border-t border-slate-800">
+    <!-- Results Screenshots & Client Feedback (7 – BLACK in light mode) -->
+    <section class="section-light py-24 border-t border-slate-800">
         <div class="container mx-auto px-4 max-w-6xl text-center">
 
             <div
                 class="results-header inline-flex items-center gap-2 bg-emerald-900/20 border border-emerald-500/30 px-4 py-1.5 rounded-full mb-4">
                 <span class="text-emerald-400 text-sm">📈</span>
-                <span class="text-xs font-bold uppercase tracking-wider text-emerald-200">Real Proof</span>
+                <span class="text-xs font-bold uppercase tracking-wider text-white-200">Real Proof</span>
             </div>
 
             <h2 class="results-header text-3xl md:text-5xl font-black mb-4">Real Client Conversations & Stats</h2>
-            <p class="results-header text-xl text-gray-400 mb-12 max-w-2xl mx-auto">काही direct screenshots जे clients ला मिळालेल्या यश
+            <p class="results-header text-xl text-gray-400 mb-12 max-w-2xl mx-auto">काही direct screenshots जे clients
+                ला मिळालेल्या यश
                 आणि scale दर्शवतात.</p>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
@@ -718,11 +961,11 @@
                             alt="Client Feedback Dashboard"
                             class="max-h-full max-w-full object-contain group-hover:scale-[1.03] transition-transform duration-500 rounded-lg">
                     </div>
-                    <div class="p-3 text-left mt-3">
+                    <!-- <div class="p-3 text-left mt-3">
                         <h4 class="font-extrabold text-white text-sm">Campaign Dashboard Analysis</h4>
                         <p class="text-xs text-gray-400 mt-1 leading-relaxed">Meta ads conversion rates pointing towards
                             highly successful scaling.</p>
-                    </div>
+                    </div> -->
                 </div>
 
                 <!-- Feedback Image 2 -->
@@ -734,11 +977,11 @@
                             alt="Client Funnel Results"
                             class="max-h-full max-w-full object-contain group-hover:scale-[1.03] transition-transform duration-500 rounded-lg">
                     </div>
-                    <div class="p-3 text-left mt-3">
+                    <!-- <div class="p-3 text-left mt-3">
                         <h4 class="font-extrabold text-white text-sm">Funnel Sales Optimization</h4>
                         <p class="text-xs text-gray-400 mt-1 leading-relaxed">Direct dashboard analysis of winning
                             metrics and low CPL rates.</p>
-                    </div>
+                    </div> -->
                 </div>
 
                 <!-- Feedback Image 3 -->
@@ -776,8 +1019,8 @@
         </div>
     </section>
 
-    <!-- About Us / Founder Section -->
-    <section class="py-24 bg-slate-900/40 border-t border-slate-800 relative">
+    <!-- About Us / Founder Section (8 – WHITE in light mode) -->
+    <section class="section-dark py-24 border-t border-slate-200 dark:border-slate-800 relative">
         <div class="container mx-auto px-4 max-w-6xl">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
 
@@ -808,26 +1051,26 @@
                         </div>
 
                         <!-- Floating Badge 1: Total Sales (Left) -->
-                        <div
+                        <!-- <div
                             class="absolute left-[-16px] top-[40%] bg-slate-950/90 border border-slate-800 backdrop-blur-md px-3.5 py-2 rounded-2xl shadow-xl flex flex-col items-start gap-0.5 z-10 transition-transform hover:scale-105 duration-300">
                             <span class="text-[9px] font-bold text-gray-400 uppercase tracking-widest">Total
                                 Sales</span>
                             <span class="text-xs font-black text-accent">₹26,50,13,842</span>
-                        </div>
+                        </div> -->
 
                         <!-- Floating Badge 2: Ads Spend (Right Bottom) -->
-                        <div
+                        <!-- <div
                             class="absolute right-[-10px] bottom-[20%] bg-slate-950/90 border border-slate-800 backdrop-blur-md px-4 py-2.5 rounded-2xl shadow-xl flex flex-col items-start gap-0.5 z-10 transition-transform hover:scale-105 duration-300">
                             <span class="text-[9px] font-bold text-gray-400 uppercase tracking-widest">Ads Spend</span>
                             <span class="text-xs font-black text-emerald-400">5.3CR+</span>
-                        </div>
+                        </div> -->
 
                         <!-- Floating Badge 3: Revenue (Right Top) -->
-                        <div
+                        <!-- <div
                             class="absolute right-[10px] top-[15%] bg-slate-950/90 border border-slate-800 backdrop-blur-md px-3.5 py-1.5 rounded-xl shadow-xl flex items-center gap-1.5 z-10 transition-transform hover:scale-105 duration-300">
                             <span class="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
                             <span class="text-[10px] font-bold text-white uppercase tracking-wider">Revenue</span>
-                        </div>
+                        </div> -->
                     </div>
 
                     <!-- Left Stats Grid -->
@@ -853,12 +1096,13 @@
                     <div
                         class="about-right-element inline-flex items-center gap-2 bg-accent/10 border border-accent/20 px-4 py-1.5 rounded-full">
                         <span class="text-accent text-sm">👑</span>
-                        <span class="text-xs font-bold uppercase tracking-wider text-accent">Founder & Growth
+                        <span class="text-xs font-bold uppercase tracking-wider text-white">Founder & Growth
                             Strategist</span>
                     </div>
 
                     <!-- Heading -->
-                    <h2 class="about-right-element text-3xl sm:text-4xl md:text-5xl font-black text-white leading-[1.35]">
+                    <h2
+                        class="about-right-element text-3xl sm:text-4xl md:text-5xl font-black text-white leading-[1.35]">
                         मी तुमचा Business <span class="text-accent">Scale</span> करण्यासाठी का कटिबद्ध आहे?
                     </h2>
 
@@ -903,16 +1147,16 @@
 
                     <!-- Bottom Integrated Callout Box -->
                     <div
-                        class="about-right-element bg-gradient-to-r from-accent/15 to-purple-950/15 border border-accent/25 rounded-2xl p-5 md:p-6 shadow-xl flex flex-col md:flex-row justify-between items-center gap-4 mt-6">
+                        class="about-right-element bg-gradient-to-r from-accent/10 to-purple-950/10 border border-accent/20 rounded-2xl p-5 md:p-6 shadow-xl flex flex-col md:flex-row justify-between items-center gap-4 mt-6">
                         <div class="text-center md:text-left space-y-1">
                             <h4 class="font-black text-white text-lg">माझ्यासोबत १-१ चर्चा करा!</h4>
                             <p class="text-sm text-gray-300">तुमच्या business साठी custom roadmap तयार करूया.</p>
                         </div>
                         <a href="#" onclick="openModal(event)"
-                            class="cta-button shrink-0 group bg-accent hover:bg-white text-slate-950 font-extrabold px-6 py-3 rounded-xl shadow-lg transition-all duration-300 flex items-center gap-2 text-sm uppercase tracking-wider">
+                            class="cta-button shrink-0 group gradient-btn font-extrabold px-6 py-3 rounded-full shadow-lg transition-all duration-300 flex items-center gap-2 text-sm uppercase tracking-wider">
                             Book Now
                             <span
-                                class="bg-slate-950 text-accent group-hover:bg-accent group-hover:text-white w-5 h-5 rounded-md flex items-center justify-center text-xs font-black transition-colors duration-300">></span>
+                                class="bg-white text-slate-950 group-hover:bg-accent group-hover:text-white w-5 h-5 rounded-full flex items-center justify-center text-xs font-black transition-colors duration-300">></span>
                         </a>
                     </div>
 
@@ -922,8 +1166,8 @@
         </div>
     </section>
 
-    <!-- Offer & Deliverables -->
-    <section class="py-20 bg-gradient-to-b from-transparent to-slate-900/80">
+    <!-- Offer & Deliverables (9 – BLACK in light mode) -->
+    <section class="section-light py-20">
         <div class="container mx-auto px-4 max-w-4xl text-center">
             <h2 class="text-4xl md:text-5xl font-black mb-6">
                 💰 DFY W.A.R.P System
@@ -934,9 +1178,9 @@
 
             <div class="glass-card rounded-3xl p-8 md:p-12 text-left relative overflow-hidden shadow-2xl">
                 <!-- Decorative element -->
-                <div class="absolute top-0 right-0 w-64 h-64 bg-accent/10 rounded-full blur-3xl"></div>
+                <div class="absolute top-0 right-0 w-64 h-64 bg-accent-orange/10 rounded-full blur-3xl"></div>
 
-                <h3 class="text-2xl font-bold mb-6 text-center text-accent">या Consultation मध्ये तुम्हाला काय मिळेल?
+                <h3 class="text-2xl font-black mb-6 text-center gradient-text">या Consultation मध्ये तुम्हाला काय मिळेल?
                 </h3>
 
                 <div class="grid md:grid-cols-2 gap-8 mb-8">
@@ -1055,38 +1299,41 @@
         </div>
     </section>
 
-    <!-- Bottom CTA Area (Before footer) -->
-    <section id="booking" class="py-24 container mx-auto px-4 max-w-3xl text-center">
-        <h2 class="text-4xl md:text-5xl font-black mb-4">Webinar पाहणं थांबवा.</h2>
-        <h2 class="text-4xl md:text-5xl font-black text-accent mb-8">Leads मिळवणं सुरू करा.</h2>
+    <!-- Bottom CTA Area (10 – BLACK in light mode) -->
+    <section id="booking" class="section-dark py-24 w-full">
+        <div class="container mx-auto px-4 max-w-3xl text-center">
+            <h2 class="text-4xl md:text-5xl font-black mb-4">Webinar पाहणं थांबवा.</h2>
+            <h2 class="text-4xl md:text-5xl font-black text-accent-orange mb-8">Leads मिळवणं सुरू करा.</h2>
 
-        <p class="text-xl text-gray-300 mb-10 leading-relaxed">
-            ₹99 strategy consultation मध्ये तुम्हाला मिळेल: <br>
-            <strong class="text-white">ads audit, growth strategy, funnel roadmap आणि DFY system planning.</strong>
-        </p>
+            <p class="text-xl text-gray-300 mb-10 leading-relaxed">
+                ₹<span class="price-font text-2xl text-accent-orange">99</span> strategy consultation मध्ये तुम्हाला मिळेल: <br>
+                <strong class="text-white">ads audit, growth strategy, funnel roadmap आणि DFY system planning.</strong>
+            </p>
 
-        <a href="#" onclick="openModal(event)"
-            class="cta-button group relative inline-flex items-center justify-center w-full sm:w-auto bg-cta hover:bg-cta-hover text-slate-950 hover:text-slate-950 font-black text-xl md:text-2xl rounded-xl overflow-hidden shadow-neon-cta pr-2 pl-8 py-4 transition-all duration-300">
-            <span>👉 ₹99 Strategy Consultation Book करा</span>
-            <div
-                class="cta-icon ml-6 bg-slate-950 text-white w-12 h-12 rounded-lg flex items-center justify-center font-black text-3xl transition-transform duration-300">
-                &gt;
-            </div>
-        </a>
+            <a href="#" onclick="openModal(event)"
+                class="cta-button group relative inline-flex items-center justify-center w-full sm:w-auto gradient-btn font-black text-xl md:text-2xl rounded-full overflow-hidden shadow-neon-cta pr-2 pl-8 py-4 transition-all duration-300">
+                <span>👉 ₹<span class="price-font text-2xl md:text-3xl px-0.5">99</span> Strategy Consultation Book करा</span>
+                <div
+                    class="cta-icon ml-6 bg-white text-slate-950 w-12 h-12 rounded-full flex items-center justify-center font-black text-3xl transition-transform duration-300">
+                    &gt;
+                </div>
+            </a>
+        </div>
     </section>
 
     <!-- Floating Sticky Footer Bar -->
     <div
-        class="fixed bottom-0 left-0 w-full bg-slate-950/90 backdrop-blur-lg border-t border-slate-800 py-4 px-4 sm:px-6 z-50 shadow-[0_-10px_30px_rgba(0,0,0,0.5)]">
+        class="fixed bottom-0 left-0 w-full bg-white/95 dark:bg-slate-950/95 backdrop-blur-lg border-t border-slate-200 dark:border-slate-800 py-4 px-4 sm:px-6 z-50 shadow-xl dark:shadow-[0_-10px_30px_rgba(0,0,0,0.6)] transition-colors duration-300">
         <div class="container mx-auto max-w-6xl flex flex-col sm:flex-row justify-between items-center gap-4">
             <div class="text-center sm:text-left">
                 <p class="font-bold text-white text-sm sm:text-base">1-to-1 Growth Strategy Call</p>
-                <p class="text-accent text-xs sm:text-sm font-semibold">Special Offer: Just ₹99</p>
+                <p class="text-accent-orange text-xs sm:text-sm font-semibold">Special Offer: Just ₹<span class="price-font text-base sm:text-lg px-0.5">99</span></p>
             </div>
             <a href="#" onclick="openModal(event)"
-                class="bg-cta hover:bg-cta-hover text-slate-950 hover:text-slate-950 px-6 py-2 rounded-lg font-black text-sm sm:text-base shadow-neon-cta transition-all duration-300 flex items-center gap-2">
+                class="gradient-btn px-6 py-2.5 rounded-full font-black text-sm sm:text-base shadow-neon-cta transition-all duration-300 flex items-center gap-2">
                 BOOK NOW
-                <span class="bg-slate-950 text-white w-6 h-6 rounded flex items-center justify-center font-black">&gt;</span>
+                <span
+                    class="bg-white text-slate-950 w-6 h-6 rounded-full flex items-center justify-center font-black">&gt;</span>
             </a>
         </div>
     </div>
@@ -1094,7 +1341,7 @@
     <!-- Booking Modal -->
     <div id="bookingModal"
         class="fixed inset-0 z-[100] hidden flex items-center justify-center bg-black/80 backdrop-blur-sm p-4 opacity-0 transition-opacity duration-300">
-        <div class="bg-slate-900 border border-slate-700 w-full max-w-md rounded-2xl p-6 relative shadow-2xl transform scale-95 transition-transform duration-300"
+        <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 w-full max-w-md rounded-2xl p-6 relative shadow-2xl transform scale-95 transition-transform duration-300 transition-colors duration-300"
             id="modalContent">
 
             <button onclick="closeModal()"
@@ -1129,14 +1376,58 @@
                 </div>
 
                 <button type="submit"
-                    class="w-full bg-cta hover:bg-cta-hover text-slate-950 hover:text-slate-950 font-black py-3 rounded-xl mt-4 shadow-neon-cta transition-all duration-300">
-                    Proceed to Pay ₹99
+                    class="w-full gradient-btn font-black py-3 rounded-full mt-4 shadow-neon-cta transition-all duration-300">
+                    Proceed to Pay ₹<span class="price-font text-xl px-0.5">99</span>
                 </button>
             </form>
         </div>
     </div>
 
     <script>
+        // Theme Toggle and Initialization Logic
+        function toggleTheme() {
+            const html = document.documentElement;
+            const sunIcon = document.getElementById('sunIcon');
+            const moonIcon = document.getElementById('moonIcon');
+
+            if (html.classList.contains('dark')) {
+                html.classList.remove('dark');
+                sunIcon.classList.add('hidden');
+                moonIcon.classList.remove('hidden');
+                localStorage.setItem('theme', 'light');
+            } else {
+                html.classList.add('dark');
+                sunIcon.classList.remove('hidden');
+                moonIcon.classList.add('hidden');
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+
+        // Initialize theme based on preference, default to light
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        const html = document.documentElement;
+        if (savedTheme === 'dark') {
+            html.classList.add('dark');
+            document.addEventListener('DOMContentLoaded', () => {
+                const sun = document.getElementById('sunIcon');
+                const moon = document.getElementById('moonIcon');
+                if (sun && moon) {
+                    sun.classList.remove('hidden');
+                    moon.classList.add('hidden');
+                }
+            });
+        } else {
+            html.classList.remove('dark');
+            document.addEventListener('DOMContentLoaded', () => {
+                const sun = document.getElementById('sunIcon');
+                const moon = document.getElementById('moonIcon');
+                if (sun && moon) {
+                    sun.classList.add('hidden');
+                    moon.classList.remove('hidden');
+                }
+            });
+        }
+
         const modal = document.getElementById('bookingModal');
         const modalContent = document.getElementById('modalContent');
 
@@ -1238,43 +1529,43 @@
                 duration: 0.8,
                 startAt: { y: -20, scale: 0.9, opacity: 0 }
             })
-            .to('.hero-title-line', {
-                opacity: 1,
-                y: 0,
-                duration: 1.2,
-                stagger: 0.15,
-                startAt: { y: -45, opacity: 0 },
-                ease: "back.out(1.2)"
-            }, "-=0.5")
-            .to('.hero-para', {
-                opacity: 1,
-                y: 0,
-                duration: 1.0,
-                startAt: { y: 25, opacity: 0 }
-            }, "-=0.8")
-            .to('.hero-prop', {
-                opacity: 1,
-                scale: 1,
-                duration: 0.8,
-                stagger: 0.1,
-                startAt: { scale: 0.92, opacity: 0 },
-                ease: "back.out(1.7)"
-            }, "-=0.7")
-            .to('.hero-btn', {
-                opacity: 1,
-                scale: 1,
-                duration: 0.8,
-                startAt: { scale: 0.95, opacity: 0 },
-                ease: "back.out(2)"
-            }, "-=0.6")
-            .to('.hero-video', {
-                opacity: 1,
-                x: 0,
-                y: 0,
-                scale: 1,
-                duration: 1.2,
-                startAt: { x: window.innerWidth > 768 ? 40 : 0, y: window.innerWidth > 768 ? 0 : 30, opacity: 0 }
-            }, "-=1.0");
+                .to('.hero-title-line', {
+                    opacity: 1,
+                    y: 0,
+                    duration: 1.2,
+                    stagger: 0.15,
+                    startAt: { y: -45, opacity: 0 },
+                    ease: "back.out(1.2)"
+                }, "-=0.5")
+                .to('.hero-para', {
+                    opacity: 1,
+                    y: 0,
+                    duration: 1.0,
+                    startAt: { y: 25, opacity: 0 }
+                }, "-=0.8")
+                .to('.hero-prop', {
+                    opacity: 1,
+                    scale: 1,
+                    duration: 0.8,
+                    stagger: 0.1,
+                    startAt: { scale: 0.92, opacity: 0 },
+                    ease: "back.out(1.7)"
+                }, "-=0.7")
+                .to('.hero-btn', {
+                    opacity: 1,
+                    scale: 1,
+                    duration: 0.8,
+                    startAt: { scale: 0.95, opacity: 0 },
+                    ease: "back.out(2)"
+                }, "-=0.6")
+                .to('.hero-video', {
+                    opacity: 1,
+                    x: 0,
+                    y: 0,
+                    scale: 1,
+                    duration: 1.2,
+                    startAt: { x: window.innerWidth > 768 ? 40 : 0, y: window.innerWidth > 768 ? 0 : 30, opacity: 0 }
+                }, "-=1.0");
 
             // --- PROBLEM SECTION SCROLLTRIGGER ---
             gsap.to('.problem-title', {

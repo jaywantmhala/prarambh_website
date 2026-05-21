@@ -1,4 +1,2 @@
-# Ignore large video files and media assets
-images/video/*.mp4
-images/video/*.heic
+# Ignore only document assets
 *.docx
