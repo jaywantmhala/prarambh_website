@@ -290,6 +290,20 @@
             color: #000000 !important;
         }
 
+        /* Protect compare cards from light mode force-black */
+        html:not(.dark) .section-light .compare-card h3,
+        html:not(.dark) .section-light .compare-card li,
+        html:not(.dark) .section-light .compare-card .absolute,
+        .compare-card h3,
+        .compare-card li,
+        .compare-card .absolute {
+            color: #ffffff !important;
+        }
+
+        .compare-card li {
+            font-weight: 700 !important;
+        }
+
         html:not(.dark) .section-light .glass-card {
             background: rgba(248, 250, 252, 0.9) !important;
             border: 1px solid rgba(0, 0, 0, 0.08) !important;
@@ -390,7 +404,7 @@
                     <span class="hero-title-line relative block whitespace-nowrap mt-1">
                         <span class="theme-text-main">आणि 1-to-1</span> <span class="gradient-text">Strategy Call बुक
                             करा</span>
-                        <svg class="absolute w-full h-3 -bottom-0.5 left-0 text-accent-orange" viewBox="0 0 100 10"
+                        <svg class="absolute w-full h-3 -bottom-0.7 left-0 text-accent-orange" viewBox="0 0 100 10"
                             preserveAspectRatio="none">
                             <path d="M0 5 Q 50 10 100 5" stroke="currentColor" stroke-width="4" fill="transparent" />
                         </svg>
@@ -431,7 +445,9 @@
                 <div class="pt-6">
                     <a href="#" onclick="openModal(event)"
                         class="hero-btn cta-button group relative inline-flex items-center justify-between w-full sm:w-auto gradient-btn font-black text-lg md:text-xl rounded-full overflow-hidden shadow-neon-cta pr-2 pl-8 py-3.5 transition-all duration-300">
-                        <span class="text-white"><span class="price-style">₹99/-</span> Strategy Consultation Book
+                        <span class="text-white"><span
+                                class="price-style text-3xl md:text-4xl align-middle mx-1">₹99/-</span> Strategy
+                            Consultation Book
                             करा</span>
                         <div
                             class="cta-icon ml-6 bg-white text-slate-950 w-10 h-10 rounded-full flex items-center justify-center font-black text-2xl transition-transform duration-300">
@@ -464,25 +480,26 @@
     </section>
 
     <!-- Problem / Hook Section -->
-    <section class="always-dark py-16 border-y border-slate-800">
+    <section class="always-dark py-8 border-y border-slate-800">
         <div class="container mx-auto px-4 max-w-4xl text-center">
-            <h2 class="problem-title text-3xl md:text-4xl font-bold mb-6">
+            <h2 class="problem-title text-3xl md:text-4xl font-bold mb-4">
                 <span class="gradient-text font-black">⚠️ Ads चालू आहेत पण Leads येत नाहीत?</span><br>
-                <span class="text-2xl md:text-3xl text-gray-300 mt-2 block font-medium">ही समस्या बहुतेक business owners
+                <span class="text-2xl md:text-3xl text-white mt-3 block font-medium">ही समस्या बहुतेक business
+                    owners
                     face करतात.</span>
             </h2>
 
-            <p class="problem-title text-xl text-gray-400 mb-10">मार्केटिंग शिकणं थांबवा. ग्राहक मिळवणं सुरू करा.</p>
+            <p class="problem-title text-xl text-gray-400 mb-6">मार्केटिंग शिकणं थांबवा. ग्राहक मिळवणं सुरू करा.</p>
 
-            <div class="grid sm:grid-cols-2 gap-6 text-left">
-                <div class="problem-card glass-card p-6 rounded-2xl border border-white/5 shadow-neon-accent/5">
-                    <div class="text-accent-orange text-3xl mb-4">⚙️</div>
-                    <h3 class="text-xl font-bold mb-2 text-white">Done-For-You System</h3>
+            <div class="grid sm:grid-cols-2 gap-4 text-left">
+                <div class="problem-card glass-card p-5 rounded-2xl border border-white/5 shadow-neon-accent/5">
+                    <div class="text-accent-orange text-3xl mb-2">⚙️</div>
+                    <h3 class="text-xl font-bold mb-1 text-white">Done-For-You System</h3>
                     <p class="text-gray-400">जो ads + funnel + automation integrate करतो.</p>
                 </div>
-                <div class="problem-card glass-card p-6 rounded-2xl border border-white/5 shadow-neon-accent/5">
-                    <div class="text-accent-orange text-3xl mb-4">📈</div>
-                    <h3 class="text-xl font-bold mb-2 text-white">Predictable Leads</h3>
+                <div class="problem-card glass-card p-5 rounded-2xl border border-white/5 shadow-neon-accent/5">
+                    <div class="text-accent-orange text-3xl mb-2">📈</div>
+                    <h3 class="text-xl font-bold mb-1 text-white">Predictable Leads</h3>
                     <p class="text-gray-400">Facebook & Instagram Ads वापरून monthly consistent lead flow तयार करतो.</p>
                 </div>
             </div>
@@ -500,51 +517,51 @@
         <div class="grid md:grid-cols-2 gap-8">
             <!-- Webinar (Maroon / Pain Points) -->
             <div
-                class="compare-card bg-red-950/15 border-2 border-red-500/30 rounded-2xl p-8 relative overflow-hidden shadow-[0_0_30px_rgba(239,68,68,0.05)]">
+                class="compare-card bg-red-950/80 border-2 border-red-500/30 rounded-2xl p-8 relative overflow-hidden shadow-[0_0_30px_rgba(239,68,68,0.15)]">
                 <div
-                    class="absolute top-0 right-0 bg-red-500/20 text-red-400 px-4 py-1 rounded-bl-xl font-bold text-xs uppercase tracking-wider">
+                    class="absolute top-0 right-0 bg-red-500/20 text-white px-4 py-1 rounded-bl-xl font-bold text-xs uppercase tracking-wider">
                     Generic</div>
-                <h3 class="text-2xl font-bold text-red-400 mb-6 flex items-center gap-3">
-                    <svg class="w-8 h-8 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <h3 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                     </svg>
                     Webinar (30-40+ लोक)
                 </h3>
                 <ul class="space-y-4">
-                    <li class="flex items-start gap-3 text-gray-300">
-                        <span class="text-red-500 mt-1">❌</span> General माहिती, specific solution नाही.
+                    <li class="flex items-start gap-3 text-white font-bold">
+                        <span class="text-white mt-1 text-lg">✖</span> General माहिती, specific solution नाही.
                     </li>
-                    <li class="flex items-start gap-3 text-gray-300">
-                        <span class="text-red-500 mt-1">❌</span> तुमचे प्रश्न विचारायला वेळ मिळत नाही.
+                    <li class="flex items-start gap-3 text-white font-bold">
+                        <span class="text-white mt-1 text-lg">✖</span> तुमचे प्रश्न विचारायला वेळ मिळत नाही.
                     </li>
-                    <li class="flex items-start gap-3 text-gray-300">
-                        <span class="text-red-500 mt-1">❌</span> Business चा exact problem समजत नाही.
+                    <li class="flex items-start gap-3 text-white font-bold">
+                        <span class="text-white mt-1 text-lg">✖</span> Business चा exact problem समजत नाही.
                     </li>
                 </ul>
             </div>
 
             <!-- 1-to-1 Call (Green / Automated Wins) -->
             <div
-                class="compare-card bg-emerald-950/20 border-2 border-emerald-500/50 rounded-2xl p-8 relative overflow-hidden shadow-[0_0_30px_rgba(16,185,129,0.15)]">
+                class="compare-card bg-emerald-950/80 border-2 border-emerald-500/50 rounded-2xl p-8 relative overflow-hidden shadow-[0_0_30px_rgba(16,185,129,0.25)]">
                 <div class="absolute top-0 right-0 bg-emerald-500 text-white px-4 py-1 rounded-bl-xl font-bold text-sm">
                     Personalized</div>
-                <h3 class="text-2xl font-bold text-emerald-400 mb-6 flex items-center gap-3">
-                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <h3 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                     </svg>
                     1-to-1 Strategy Call
                 </h3>
                 <ul class="space-y-4">
-                    <li class="flex items-start gap-3 text-gray-200">
-                        <span class="text-emerald-500 mt-1">✅</span> तुमच्या business साठी exact ads audit.
+                    <li class="flex items-start gap-3 text-white font-bold">
+                        <span class="text-white mt-1 text-lg">✔</span> तुमच्या business साठी exact ads audit.
                     </li>
-                    <li class="flex items-start gap-3 text-gray-200">
-                        <span class="text-emerald-500 mt-1">✅</span> Funnel analysis आणि custom roadmap.
+                    <li class="flex items-start gap-3 text-white font-bold">
+                        <span class="text-white mt-1 text-lg">✔</span> Funnel analysis आणि custom roadmap.
                     </li>
-                    <li class="flex items-start gap-3 text-gray-200">
-                        <span class="text-emerald-500 mt-1">✅</span> 100% focus फक्त तुमच्या growth वर.
+                    <li class="flex items-start gap-3 text-white font-bold">
+                        <span class="text-white mt-1 text-lg">✔</span> 100% focus फक्त तुमच्या growth वर.
                     </li>
                 </ul>
             </div>
@@ -1306,14 +1323,16 @@
             <h2 class="text-4xl md:text-5xl font-black text-accent-orange mb-8">Leads मिळवणं सुरू करा.</h2>
 
             <p class="text-xl text-gray-300 mb-10 leading-relaxed">
-                <span class="price-style text-accent-orange">₹99/-</span> strategy consultation मध्ये तुम्हाला
+                <span class="price-style text-4xl md:text-5xl text-accent-orange align-middle mx-1">₹99/-</span>
+                strategy consultation मध्ये तुम्हाला
                 मिळेल: <br>
                 <strong class="text-white">ads audit, growth strategy, funnel roadmap आणि DFY system planning.</strong>
             </p>
 
             <a href="#" onclick="openModal(event)"
                 class="cta-button group relative inline-flex items-center justify-center w-full sm:w-auto gradient-btn font-black text-xl md:text-2xl rounded-full overflow-hidden shadow-neon-cta pr-2 pl-8 py-4 transition-all duration-300">
-                <span>👉 <span class="price-style">₹99/-</span> Strategy Consultation Book
+                <span class="flex items-center justify-center">👉 <span
+                        class="price-style text-3xl md:text-4xl mx-2">₹99/-</span> Strategy Consultation Book
                     करा</span>
                 <div
                     class="cta-icon ml-6 bg-white text-slate-950 w-12 h-12 rounded-full flex items-center justify-center font-black text-3xl transition-transform duration-300">
@@ -1329,7 +1348,9 @@
         <div class="container mx-auto max-w-6xl flex flex-col sm:flex-row justify-between items-center gap-4">
             <div class="text-center sm:text-left">
                 <p class="font-bold text-white text-sm sm:text-base">1-to-1 Growth Strategy Call</p>
-                <p class="text-accent-orange text-xs sm:text-sm font-semibold">Special Offer: Just <span class="price-style">₹99/-</span></p>
+                <p
+                    class="text-accent-orange text-xs sm:text-sm font-semibold flex items-center justify-center sm:justify-start gap-1 mt-1">
+                    Special Offer: Just <span class="price-style text-xl sm:text-2xl">₹99/-</span></p>
             </div>
             <a href="#" onclick="openModal(event)"
                 class="gradient-btn px-6 py-2.5 rounded-full font-black text-sm sm:text-base shadow-neon-cta transition-all duration-300 flex items-center gap-2">
@@ -1379,7 +1400,7 @@
 
                 <button type="submit"
                     class="w-full gradient-btn font-black py-3 rounded-full mt-4 shadow-neon-cta transition-all duration-300">
-                    Proceed to Pay <span class="price-style">₹99/-</span>
+                    Proceed to Pay <span class="price-style text-2xl md:text-3xl align-middle mx-1">₹99/-</span>
                 </button>
             </form>
         </div>
