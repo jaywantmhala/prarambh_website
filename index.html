@@ -103,7 +103,7 @@
         html:not(.dark) h6:not(.gradient-text),
         html:not(.dark) p,
         html:not(.dark) li,
-        html:not(.dark) span:not(.gradient-text):not(.bg-white):not(.text-white):not(.price-style),
+        html:not(.dark) span:not(.gradient-text):not(.bg-white):not(.text-white):not(.price-style):not(.text-accent):not(.text-emerald-400):not(.text-red-400):not(.text-purple-200):not(.text-emerald-200):not(.text-purple-400),
         html:not(.dark) strong,
         html:not(.dark) .theme-text-main,
         html:not(.dark) .theme-text-muted {
@@ -119,7 +119,7 @@
         html.dark h6:not(.gradient-text),
         html.dark p,
         html.dark li,
-        html.dark span:not(.gradient-text):not(.bg-white):not(.price-style),
+        html.dark span:not(.gradient-text):not(.bg-white):not(.price-style):not(.text-accent):not(.text-emerald-400):not(.text-red-400):not(.text-purple-200):not(.text-emerald-200):not(.text-purple-400),
         html.dark strong,
         html.dark .theme-text-main,
         html.dark .theme-text-muted {
@@ -144,7 +144,7 @@
         .always-dark h6:not(.gradient-text),
         .always-dark p,
         .always-dark li,
-        .always-dark span:not(.gradient-text):not(.bg-white),
+        .always-dark span:not(.gradient-text):not(.bg-white):not(.text-accent):not(.text-emerald-400):not(.text-red-400):not(.text-purple-200):not(.text-emerald-200):not(.text-purple-400),
         .always-dark strong {
             color: #ffffff !important;
         }
@@ -158,7 +158,7 @@
         html:not(.dark) .always-dark h6:not(.gradient-text),
         html:not(.dark) .always-dark p,
         html:not(.dark) .always-dark li,
-        html:not(.dark) .always-dark span:not(.gradient-text):not(.bg-white),
+        html:not(.dark) .always-dark span:not(.gradient-text):not(.bg-white):not(.text-accent):not(.text-emerald-400):not(.text-red-400):not(.text-purple-200):not(.text-emerald-200):not(.text-purple-400),
         html:not(.dark) .always-dark strong,
         html:not(.dark) .always-dark .theme-text-main,
         html:not(.dark) .always-dark .theme-text-muted {
@@ -849,11 +849,13 @@
                 <div
                     class="testimonial-card glass-card rounded-2xl overflow-hidden border border-white/10 hover:border-accent/30 hover:bg-slate-900/60 transition-all duration-300 shadow-xl flex flex-col group">
                     <div class="relative w-full aspect-[9/16] bg-black">
-                        <video class="w-full h-full object-cover" controls preload="metadata" playsinline>
-                            <source src="images/video/prarambh%20customer%20review%2001%20final%20.mp4"
-                                type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
+                        <iframe class="absolute inset-0 w-full h-full"
+                            src="https://www.youtube.com/embed/xw-pyNal0Fk?si=1" 
+                            title="Prarambh Customer Review 01"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                        </iframe>
                     </div>
                     <!-- <div class="p-4 bg-slate-950/80 border-t border-slate-800 text-left">
                         <h4 class="font-extrabold text-white text-base">Prarambh Success Story 01</h4>
@@ -865,10 +867,13 @@
                 <div
                     class="testimonial-card glass-card rounded-2xl overflow-hidden border border-white/10 hover:border-accent/30 hover:bg-slate-900/60 transition-all duration-300 shadow-xl flex flex-col group">
                     <div class="relative w-full aspect-[9/16] bg-black">
-                        <video class="w-full h-full object-cover" controls preload="metadata" playsinline>
-                            <source src="images/video/prarambh%20customer%20review%2002%20.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
+                        <iframe class="absolute inset-0 w-full h-full"
+                            src="https://www.youtube.com/embed/iw6EmPOkid8?si=1" 
+                            title="Prarambh Customer Review 02"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                        </iframe>
                     </div>
                     <!-- <div class="p-4 bg-slate-950/80 border-t border-slate-800 text-left">
                         <h4 class="font-extrabold text-white text-base">Prarambh Success Story 02</h4>
@@ -880,11 +885,13 @@
                 <div
                     class="testimonial-card glass-card rounded-2xl overflow-hidden border border-white/10 hover:border-accent/30 hover:bg-slate-900/60 transition-all duration-300 shadow-xl flex flex-col group">
                     <div class="relative w-full aspect-[9/16] bg-black">
-                        <video class="w-full h-full object-cover" controls preload="metadata" playsinline>
-                            <source src="images/video/yoga%20coach%20success%20story%20final%2029052025%20(1).mp4"
-                                type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
+                        <iframe class="absolute inset-0 w-full h-full"
+                            src="https://www.youtube.com/embed/nB8UfKKSPLI?si=1" 
+                            title="Yoga Coach Success Story"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                        </iframe>
                     </div>
                     <!-- <div class="p-4 bg-slate-950/80 border-t border-slate-800 text-left">
                         <h4 class="font-extrabold text-white text-base">Yoga Coach Success Story</h4>
@@ -896,11 +903,13 @@
                 <div
                     class="testimonial-card glass-card rounded-2xl overflow-hidden border border-white/10 hover:border-accent/30 hover:bg-slate-900/60 transition-all duration-300 shadow-xl flex flex-col group">
                     <div class="relative w-full aspect-[9/16] bg-black">
-                        <video class="w-full h-full object-cover" controls preload="metadata" playsinline>
-                            <source src="images/video/CUSTOMER%20REVIVE%201903%20CORRECTION%20FINAL%20.mp4"
-                                type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
+                        <iframe class="absolute inset-0 w-full h-full"
+                            src="https://www.youtube.com/embed/cv0-AZLN_2Q?si=1" 
+                            title="Customer Revive Strategy"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                        </iframe>
                     </div>
                     <!-- <div class="p-4 bg-slate-950/80 border-t border-slate-800 text-left">
                         <h4 class="font-extrabold text-white text-base">Customer Revive Campaign</h4>
@@ -912,10 +921,13 @@
                 <div
                     class="testimonial-card glass-card rounded-2xl overflow-hidden border border-white/10 hover:border-accent/30 hover:bg-slate-900/60 transition-all duration-300 shadow-xl flex flex-col group">
                     <div class="relative w-full aspect-[9/16] bg-black">
-                        <video class="w-full h-full object-cover" controls preload="metadata" playsinline>
-                            <source src="images/video/client%20feedback%20correction%20final.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
+                        <iframe class="absolute inset-0 w-full h-full"
+                            src="https://www.youtube.com/embed/Ibs32nJH9Vo?si=1" 
+                            title="Client Feedback Audit"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                        </iframe>
                     </div>
                     <!-- <div class="p-4 bg-slate-950/80 border-t border-slate-800 text-left">
                         <h4 class="font-extrabold text-white text-base">Client Feedback & Results</h4>
@@ -927,10 +939,13 @@
                 <div
                     class="testimonial-card glass-card rounded-2xl overflow-hidden border border-white/10 hover:border-accent/30 hover:bg-slate-900/60 transition-all duration-300 shadow-xl flex flex-col group">
                     <div class="relative w-full aspect-[9/16] bg-black">
-                        <video class="w-full h-full object-cover" controls preload="metadata" playsinline>
-                            <source src="images/video/Video-670.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
+                        <iframe class="absolute inset-0 w-full h-full"
+                            src="https://www.youtube.com/embed/tlxjux-r-Pw?si=1" 
+                            title="Case Study 670"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                        </iframe>
                     </div>
                     <!-- <div class="p-4 bg-slate-950/80 border-t border-slate-800 text-left">
                         <h4 class="font-extrabold text-white text-base">Growth Case Study A</h4>
@@ -942,10 +957,13 @@
                 <div
                     class="testimonial-card glass-card rounded-2xl overflow-hidden border border-white/10 hover:border-accent/30 hover:bg-slate-900/60 transition-all duration-300 shadow-xl flex flex-col group md:col-span-2 lg:col-span-1">
                     <div class="relative w-full aspect-[9/16] bg-black">
-                        <video class="w-full h-full object-cover" controls preload="metadata" playsinline>
-                            <source src="images/video/Video-692.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
+                        <iframe class="absolute inset-0 w-full h-full"
+                            src="https://www.youtube.com/embed/Yqq67n5tGbE?si=1" 
+                            title="Case Study 692"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                        </iframe>
                     </div>
                     <!-- <div class="p-4 bg-slate-950/80 border-t border-slate-800 text-left">
                         <h4 class="font-extrabold text-white text-base">Growth Case Study B</h4>
